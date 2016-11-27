@@ -6,23 +6,17 @@
 </head>
 <body>
 <h1> А для нашего Сенульки, есть у Мела загадульки </h1>
-
 <script>
-var a =prompt ('А ну Сенай давай, задачу отгадай, сколько будет 5+7');
-  var c=12;
-  a=parseInt(a);
-  c=parseInt(c)
-if (a==c)
-  {  
-    var b= prompt( "А теперь дружок Сенай, к этой цифре прибавляй");
-    b=parseInt(b);
-    var res=a+b;
-    alert ("Вот такая вот хуйня: "+res+ " получилась у тебя ");
-   }
- else
- {
-  alert ("Ах ты сучка Сенай необразованная !");
- }
+const a = parseInt(prompt('А ну Сенай давай, задачу отгадай, сколько будет 5+7'), 10);
+const EXPECTED_VALUE = 12;
+
+if (a === EXPECTED_VALUE) {  
+    const b = parseInt(prompt('А теперь дружок Сенай, к этой цифре прибавляй'), 10);
+    const result = a + b;
+    alert(`Вот такая вот хуйня: ${result} получилась у тебя!`);
+} else {
+    alert('Ах ты сучка Сенай необразованная!');
+}
 </script>
 </body>
  </html>
