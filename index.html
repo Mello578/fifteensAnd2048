@@ -1,22 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<title> Моя первая программа </title>
+    <meta charset="utf-8">
+    <title> site </title>
 </head>
 <body>
-<h1> А для нашего Сенульки, есть у Мела загадульки </h1>
-<script>
-const a = parseInt(prompt('А ну Сенай давай, задачу отгадай, сколько будет 5+7'), 10);
-const EXPECTED_VALUE = 12;
 
-if (a === EXPECTED_VALUE) {  
-    const b = parseInt(prompt('А теперь дружок Сенай, к этой цифре прибавляй'), 10);
-    const result = a + b;
-    alert(`Вот такая вот хуйня: ${result} получилась у тебя!`);
-} else {
-    alert('Ах ты сучка Сенай необразованная!');
-}
+
+<h1> Не знаешь что делать - ебашь хардкор </h1>
+<br>
+<br>
+<h>Вычисление расхода бензина на различных помойках у нескольких человек </h>
+<br>
+<br>
+<input type="number" id="dist"> Сколько проехала твоя помойка
+<br>
+<input type="number" id="cpa"> Сколько ты сжег бенза
+<br>
+
+<br>
+<br>
+<input type="number" id="dist2"> Сколько проехала помойка какого нить лоха
+<br>
+<input type="number" id="cpa2"> Сколько бенза сжег лохан
+<br>
+<button onclick="consumption(), consumption2()"> Расчет </button>
+<script src="java.js">
 </script>
 </body>
- </html>
+</html>
