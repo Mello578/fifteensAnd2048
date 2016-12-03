@@ -8,7 +8,7 @@ function consumption ()
     var spent = document.getElementById("cpa").value;
     consum=spent/distance*100;
     alert (name + " Твоя помойка на 100 км жрет " + consum + " литров бензина");
-    return consum;
+   
 }
 function consumption2 ()
 {
@@ -16,7 +16,7 @@ function consumption2 ()
     var spent2 = document.getElementById("cpa2").value;
     consum2=spent2/distance2*100;
     alert ("А помойка лоха на 100 км жрет " + consum2 + " литров бензина");
-    return consum2;
+
 }
  /*   lohan(consum, consum2)
     
