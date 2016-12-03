@@ -1,7 +1,6 @@
-var name;
 var consum=0, consum2=0;
-name = prompt("Введи своё беспонтовое имя");
-name2= prompt ("Введи имя второго лоха");
+var name = prompt("Введи своё беспонтовое имя");
+var name2= prompt ("Введи имя второго лоха");
 
 function consumption ()
 {
@@ -19,8 +18,9 @@ function consumption2 ()
     alert ("А помойка лоха на 100 км жрет " + consum2 + " литров бензина");
     return consum2;
 }
-    lohan(consum, consum2)
-/*
+ /*   lohan(consum, consum2)
+    
+
 function lohan (a, b)
 {
  if (a>b)
