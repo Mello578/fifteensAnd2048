@@ -3,29 +3,45 @@
 <head>
     <meta charset="utf-8">
     <title> site </title>
+    <style>
+        .block {
+            border: 1px solid #EEEEEE;
+            padding: 5px 10px;
+            width: 327px;
+        }
+    </style>
 </head>
 <body>
-
-
-<h1> Не знаешь что делать - ебашь хардкор </h1>
-<br>
-<br>
-<h>Вычисление расхода бензина на различных помойках у нескольких человек </h>
-<br>
-<br>
-<input type="number" id="dist"> Сколько проехала твоя помойка
-<br>
-<input type="number" id="cpa"> Сколько ты сжег бенза
-<br>
-
-<br>
-<br>
-<input type="number" id="dist2"> Сколько проехала помойка какого нить лоха
-<br>
-<input type="number" id="cpa2"> Сколько бенза сжег лохан
-<br>
-<button onclick="consumption(), consumption2()"> Расчет </button>
-<script src="java.js">
-</script>
+<div>
+    <h1> Не знаешь что делать - ебашь хардкор </h1>
+    <br>
+    <h>Вычисление расхода бензина на различных помойках у нескольких человек</h>
+    <div class="block">
+        <label for="name1">Введите ваше лоховское имя</label>
+        <input type="text" id="name1">
+    </div>
+    <div class="block">
+        <label for="name2">Введите имя вашего друга - лоха</label>
+        <input type="text" id="name2">
+    </div>
+    <div class="block">
+        <label for="distance1">Сколько проехала твоя помойка</label>
+        <input type="number" id="distance1">
+    </div>
+    <div class="block">
+        <label for="consumption1">Сколько ты сжег бенза</label>
+        <input type="number" id="consumption1">
+    </div>
+    <div class="block">
+        <label for="distance2">Сколько проехала помойка какого нить лоха</label>
+        <input type="number" id="distance2">
+    </div>
+    <div class="block">
+        <label for="consumption2">Сколько бенза сжег лохан</label>
+        <input type="number" id="consumption2">
+    </div>
+    <button id="calculateButton">Расчет</button>
+</div>
+<script src="index.js"></script>
 </body>
 </html>
