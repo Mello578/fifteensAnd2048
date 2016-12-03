@@ -8,7 +8,8 @@ function consumption ()
     var spent = document.getElementById("cpa").value;
     consum=spent/distance*100;
     alert (name + " Твоя помойка на 100 км жрет " + consum + " литров бензина");
-   
+    document.getElementById("dist").value=0;
+    document.getElementById("cpa").value=0;
 }
 function consumption2 ()
 {
@@ -16,11 +17,10 @@ function consumption2 ()
     var spent2 = document.getElementById("cpa2").value;
     consum2=spent2/distance2*100;
     alert ("А помойка лоха на 100 км жрет " + consum2 + " литров бензина");
-
+    document.getElementById("dist2").value=0;
+    document.getElementById("cpa2").value=0;
 }
- /*   lohan(consum, consum2)
-    
-
+/*lohan(consum, consum2)
 function lohan (a, b)
 {
  if (a>b)
