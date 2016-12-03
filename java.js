@@ -20,19 +20,17 @@ function consumption2 ()
     document.getElementById("dist2").value=0;
     document.getElementById("cpa2").value=0;
 }
-/*lohan(consum, consum2)
+lohan(consum, consum2)
 function lohan (a, b)
 {
  if (a>b)
  {
-     open("loh.html");
+     open("loh.jpg");
      alert ("Ебать "+ name+" ты лошара, продавай своё ведро");
  }
     else
  {
-     open("loh.html");
+     open("loh.jpg");
      alert ("Ебать "+ name2+" ты лошара, продавай своё ведро");
  }
 }
-
-*/
