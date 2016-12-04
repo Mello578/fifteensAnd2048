@@ -19,4 +19,6 @@ calculateButton.onclick = () => {
     distance2.value = '';
     consumption1.value = '';
     consumption2.value = '';
+
+    lohImage.style.display = firstResult > secondResult ? 'block' : 'none';
 };
