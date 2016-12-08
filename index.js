@@ -1,24 +1,58 @@
-calculateButton.onclick = () => {
-    const firstName = name1.value;
-    const secondName = name2.value;
-    const firstDistance = parseInt(distance1.value, 10);
-    const secondDistance = parseInt(distance2.value, 10);
-    const firstConsumption = parseInt(consumption1.value, 10);
-    const secondConsumption = parseInt(consumption2.value, 10);
+allLohButton.onclick = () => {addfields();}
+addLohButton.onclick = () => {addForm(); }
+calculateButton.onclick = () => {calculate();}
 
-    const firstResult = firstConsumption / firstDistance;
-    const secondResult = secondConsumption / secondDistance;
+var b = parseInt(0);
+function addfields()
+{
+    var quality = parseInt(quantity.value, 10);   /*Загоняем в переменную количество лохов*/
+    quality+=b;
+        for (var i = b; i < quality; i++)
+        {
+            addForm();
+        }
+   }
 
-    const message = `Помойка мудака ${firstName} хавает ${firstResult} литров на километр
-Хуйня уёбка ${secondName} жрет ${secondResult} литров на километр
-Машина лоха ${firstResult > secondResult ? secondName : firstName} пизже`;
 
+function addForm() {
+    var newName = document.createElement("input");   /* создаем форму input */
+    newName.type = "text";                           /* устанвливаем тип формы */
+    newName.id = "name" + b;
+    newName.value = "";
+    newName.placeholder = "Имя лоха";
+
+      var newDistance = document.createElement("input");   
+        newDistance.type = "text";                           
+        newDistance.id = "distance" + b;                        
+        newDistance.value = "";
+        newDistance.placeholder = "Расстояние";
+
+            var newConsumption = document.createElement("input");
+            newConsumption.type = "text";
+            newConsumption.id = "consumption" + b;
+            newConsumption.value = "";
+            newConsumption.placeholder = "Количество толива";
+
+    document.getElementById('myForm').appendChild(newName);    /* Размещаем форму */
+    newName.style.display = "block";
+    document.getElementById('myForm').appendChild(newDistance);
+    newDistance.style.display = "block";
+    document.getElementById('myForm').appendChild(newConsumption);
+    newConsumption.style.display = "block";
+    b++;
+}
+
+function calculate() 
+{
+    var message =``;
+    for (i=0; i<b; i++) {
+        const Name = document.getElementById('name' + i).value;
+        const Distance = parseInt(document.getElementById('distance' + i).value);
+        const Consumption = parseInt(document.getElementById('consumption' + i).value);
+        const Result = Consumption / Distance * 100;
+    
+        message += `помойка ${Name} хавает ${Result} литров бензина \r\n`;    
+    }
+   
     alert(message);
-
-    distance1.value = '';
-    distance2.value = '';
-    consumption1.value = '';
-    consumption2.value = '';
-
-    lohImage.style.display = firstResult > secondResult ? 'block' : 'none';
-};
+}
