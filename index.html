@@ -5,10 +5,11 @@
     <title> site </title>
     <style>
         .block {
-            border: 1px solid #EEEEEE;
+            border: 3px solid #EEEEEE;
             padding: 5px 10px;
-            width: 327px;
+            width: 300px;
         }
+
     </style>
 </head>
 <body>
@@ -16,33 +17,20 @@
     <h1> Не знаешь что делать - ебашь хардкор </h1>
     <br>
     <h>Вычисление расхода бензина на различных помойках у нескольких человек</h>
-    <div class="block">
-        <label for="name1">Введите ваше лоховское имя</label>
-        <input type="text" id="name1">
-    </div>
-    <div class="block">
-        <label for="name2">Введите имя вашего друга - лоха</label>
-        <input type="text" id="name2">
-    </div>
-    <div class="block">
-        <label for="distance1">Сколько проехала твоя помойка</label>
-        <input type="number" id="distance1">
-    </div>
-    <div class="block">
-        <label for="consumption1">Сколько ты сжег бенза</label>
-        <input type="number" id="consumption1">
-    </div>
-    <div class="block">
-        <label for="distance2">Сколько проехала помойка какого нить лоха</label>
-        <input type="number" id="distance2">
-    </div>
-    <div class="block">
-        <label for="consumption2">Сколько бенза сжег лохан</label>
-        <input type="number" id="consumption2">
-    </div>
-    <button id="calculateButton">Расчет</button>
-    <img id="lohImage" style="display: none;" src="./loh.jpg">
-</div>
+    <br>
+    <br>
+    <label for="quantity">Введите количество лохов для расчета</label>
+         <div class="block">
+            <input type="number" id="quantity">
+            <button id="allLohButton">Добавить лохов</button>
+            <button id="addLohButton">Добавить лоха</button>
+            <button id="calculateButton">Расчитать лохов</button>
+        </div>
+            <div class="block">
+                <form action="#" id="myForm">
+                </form>
+            </div>
 <script src="index.js"></script>
+</div>
 </body>
 </html>
