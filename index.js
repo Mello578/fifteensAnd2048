@@ -44,15 +44,53 @@ function addForm() {
 
 function calculate() 
 {
-    var message =``;
-    for (i=0; i<b; i++) {
+
+    var list = new Array;      //Список под текст
+    var listNumb = new Array; //Список под числа
+    var min;
+    var max;
+    var minIndex;  //индекс минимального числа
+    var maxIndex;
+
+    var divMin = document.createElement('div');
+        divMin.className = "text";
+    var divMin1 = document.createElement('div');
+        divMin1.className = "text1";
+    
+    
+
+    for (i=0; i<b; i++)
+    {
         const Name = document.getElementById('name' + i).value;
         const Distance = parseInt(document.getElementById('distance' + i).value);
         const Consumption = parseInt(document.getElementById('consumption' + i).value);
-        const Result = Consumption / Distance * 100;
+        const Result = parseInt(Consumption / Distance * 100);
     
-        message += `помойка ${Name} хавает ${Result} литров бензина \r\n`;    
+        list.push ( `Помойка ${Name} хавает  ${Result} литров топлива \n`);
+        listNumb.push (parseInt( Result));
     }
-   
-    alert(message);
+    min = Math.min.apply(null, listNumb);     // Нашли min, max
+    max = Math.max.apply(null, listNumb);
+    minIndex = parseInt( listNumb.indexOf(min));  // Нашли индексы min, max
+    maxIndex = parseInt( listNumb.indexOf(max));
+    for (i=0; i<list.length; i++)
+    {
+          if (i == minIndex)
+          {
+              divMin.innerHTML=list[i];
+              document.body.appendChild(divMin);
+          }
+         if (i == maxIndex)
+          {   
+              divMin1.innerHTML=list[i];
+              document.body.appendChild(divMin1);
+          }
+         if (i != minIndex && i != maxIndex)
+              {
+                  var divMin2 = document.createElement('div');
+                  divMin2.className = "text2";
+                  divMin2.innerHTML=list[i];
+                  document.body.appendChild(divMin2);
+              }
+    }
 }
