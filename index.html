@@ -9,6 +9,32 @@
             padding: 5px 10px;
             width: 300px;
         }
+        .block2 {
+            border: 3px solid #EEEEEE;
+            padding: 50px 20px;
+            width: 600px;
+        }
+        .text {
+            border: 3px solid #EEEEEE;
+            padding: 10px 30px;
+            width: 300px;
+            text-align: right;
+            background-color: #23FB48 ;
+        }
+        .text1 {
+            border: 3px solid #EEEEEE;
+            padding: 10px 30px;
+            width: 300px;
+            text-align: right;
+            background-color: #fb0018;
+        }
+        .text2{
+            border: 3px solid #EEEEEE;
+            padding: 10px 30px;
+            width: 300px;
+            text-align: right;
+            background-color: #FFFFFF;
+        }
 
     </style>
 </head>
@@ -16,21 +42,25 @@
 <div>
     <h1> Не знаешь что делать - ебашь хардкор </h1>
     <br>
+    <div class="block2">
     <h>Вычисление расхода бензина на различных помойках у нескольких человек</h>
     <br>
     <br>
     <label for="quantity">Введите количество лохов для расчета</label>
-         <div class="block">
-            <input type="number" id="quantity">
-            <button id="allLohButton">Добавить лохов</button>
-            <button id="addLohButton">Добавить лоха</button>
-            <button id="calculateButton">Расчитать лохов</button>
+    <div class="block">
+        <input type="number" id="quantity">
+        <button id="allLohButton">Добавить лохов</button>
+        <button id="addLohButton">Добавить лоха</button>
+        <button id="calculateButton">Расчитать лохов</button>
+    </div>
+    <div class="block">
+        <form action="#" id="myForm">
+        </form>
+
         </div>
-            <div class="block">
-                <form action="#" id="myForm">
-                </form>
-            </div>
-<script src="index.js"></script>
+
+    <script src="index.js"></script>
 </div>
+    </div>
 </body>
 </html>
