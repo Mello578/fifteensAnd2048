@@ -14,7 +14,8 @@ function addfields()
    }
 
 
-function addForm() {
+function addForm() 
+{
     var newName = document.createElement("input");   /* создаем форму input */
     newName.type = "text";                           /* устанвливаем тип формы */
     newName.id = "name" + b;
@@ -51,16 +52,10 @@ function calculate()
     var max;
     var minIndex;  //индекс минимального числа
     var maxIndex;
-
-    var divMin = document.createElement('div');
-        divMin.className = "text";
-    var divMin1 = document.createElement('div');
-        divMin1.className = "text1";
-    
-    
-
-    for (i=0; i<b; i++)
-    {
+    var equally=0; //Сранение всех элементов
+  
+     for (i=0; i<b; i++)              // записываем в списки расход и полные сообщения
+      {
         const Name = document.getElementById('name' + i).value;
         const Distance = parseInt(document.getElementById('distance' + i).value);
         const Consumption = parseInt(document.getElementById('consumption' + i).value);
@@ -69,28 +64,45 @@ function calculate()
         list.push ( `Помойка ${Name} хавает  ${Result} литров топлива \n`);
         listNumb.push (parseInt( Result));
     }
-    min = Math.min.apply(null, listNumb);     // Нашли min, max
-    max = Math.max.apply(null, listNumb);
-    minIndex = parseInt( listNumb.indexOf(min));  // Нашли индексы min, max
-    maxIndex = parseInt( listNumb.indexOf(max));
-    for (i=0; i<list.length; i++)
-    {
-          if (i == minIndex)
-          {
-              divMin.innerHTML=list[i];
-              document.body.appendChild(divMin);
-          }
-         if (i == maxIndex)
-          {   
-              divMin1.innerHTML=list[i];
-              document.body.appendChild(divMin1);
-          }
-         if (i != minIndex && i != maxIndex)
-              {
-                  var divMin2 = document.createElement('div');
-                  divMin2.className = "text2";
-                  divMin2.innerHTML=list[i];
-                  document.body.appendChild(divMin2);
-              }
+    for (i=0; i<listNumb.length; i++)       //Сравниваем все элементы
+        {
+            equally +=listNumb[i];
+        }
+            if (equally/listNumb.length == listNumb[0])      // Если все равны, то заносим всё в обычный список
+                 {
+                    for (i = 0; i < list.length; i++)
+                    {
+                        var divMin2 = document.createElement('div');
+                        divMin2.className = "text2";
+                        divMin2.innerHTML = list[i];
+                        document.body.appendChild(divMin2);
+                    }
+                }
+    else {               // Если не все равны, то ищем минимум и максимум и выводим в список по цветам
+        min = Math.min.apply(null, listNumb);     // Нашли min, max
+        max = Math.max.apply(null, listNumb);
+        minIndex = parseInt(listNumb.indexOf(min));  // Нашли индексы min, max
+        maxIndex = parseInt(listNumb.indexOf(max));
+
+        for (i = 0; i < list.length; i++) {
+            if (i == minIndex) {
+                var divMin = document.createElement('div');
+                divMin.className = "text";
+                divMin.innerHTML = list[i];
+                document.body.appendChild(divMin);
+            }
+            if (i == maxIndex) {
+                var divMin1 = document.createElement('div');
+                divMin1.className = "text1";
+                divMin1.innerHTML = list[i];
+                document.body.appendChild(divMin1);
+            }
+            if (i != minIndex && i != maxIndex) {
+                var divMin2 = document.createElement('div');
+                divMin2.className = "text2";
+                divMin2.innerHTML = list[i];
+                document.body.appendChild(divMin2);
+            }
+        }
     }
 }
