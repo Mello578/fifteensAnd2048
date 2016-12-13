@@ -87,19 +87,19 @@ function calculate()
         for (i = 0; i < list.length; i++) {
             if (i == minIndex) {
                 var divMin = document.createElement('div');
-                divMin.className = "text";
+                divMin.className = "text colorGreen";
                 divMin.innerHTML = list[i];
                 document.body.appendChild(divMin);
             }
             if (i == maxIndex) {
                 var divMin1 = document.createElement('div');
-                divMin1.className = "text1";
+                divMin1.className = "text colorRed";
                 divMin1.innerHTML = list[i];
                 document.body.appendChild(divMin1);
             }
             if (i != minIndex && i != maxIndex) {
                 var divMin2 = document.createElement('div');
-                divMin2.className = "text2";
+                divMin2.className = "text colorNever";
                 divMin2.innerHTML = list[i];
                 document.body.appendChild(divMin2);
             }
