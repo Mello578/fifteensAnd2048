@@ -63,13 +63,13 @@ function calculate()
           const styleGreen = "text colorGreen";
           const styleRed = "text colorRed";
           const styleWhite = "text colorNever";
-            outFun (a, c)
+ /*           outFun (a, c)
           {
                var a = document.createElement('div');
                a.className = c;
                a.innerHTML = list[i];
                document.body.appendChild(a);
-          }
+          }   */
     
         list.push ( `Помойка ${Name} хавает  ${Result} литров топлива \n`);
         listNumb.push (parseInt( Result));
@@ -82,12 +82,12 @@ function calculate()
                  {
                     for (i = 0; i < list.length; i++)
                     {
-                        var divMin;
-                        outFun (divMin, styleWhite);
-                    /*    var divMin2 = document.createElement('div');
+                     /*     var divMin;
+                        outFun (divMin, styleWhite);  */
+                      var divMin2 = document.createElement('div');
                         divMin2.className = "text2";
                         divMin2.innerHTML = list[i];
-                        document.body.appendChild(divMin2);  */
+                        document.body.appendChild(divMin2);  
                     }
                 }
     else {               // Если не все равны, то ищем минимум и максимум и выводим в список по цветам
@@ -98,28 +98,28 @@ function calculate()
 
         for (i = 0; i < list.length; i++) {
             if (i == minIndex) {
-                var divMin;
-                        outFun (divMin, styleGreen);
-          /*      var divMin = document.createElement('div');
+              /*    var divMin;
+                        outFun (divMin, styleGreen);  */
+              var divMin = document.createElement('div');
                 divMin.className = "text colorGreen";
                 divMin.innerHTML = list[i];
-                document.body.appendChild(divMin); */
+                document.body.appendChild(divMin); 
             }
             else if (i == maxIndex) {
-                var divMin;
-                        outFun (divMin, styleRed);
-            /*    var divMin1 = document.createElement('div');
+              /*     var divMin;
+                        outFun (divMin, styleRed);  */
+             var divMin1 = document.createElement('div');
                 divMin1.className = "text colorRed";
                 divMin1.innerHTML = list[i];
-                document.body.appendChild(divMin1);   */
+                document.body.appendChild(divMin1);   
             }
             else {
-                var divMin;
-                        outFun (divMin, styleWhite);
-           /*     var divMin2 = document.createElement('div');
+             /*      var divMin;
+                        outFun (divMin, styleWhite);   */
+             var divMin2 = document.createElement('div');
                 divMin2.className = "text colorNever";
                 divMin2.innerHTML = list[i];
-                document.body.appendChild(divMin2);   */
+                document.body.appendChild(divMin2);  
             }
         }
     }
