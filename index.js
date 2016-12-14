@@ -63,12 +63,12 @@ function calculate()
           const styleGreen = "text colorGreen";
           const styleRed = "text colorRed";
           const styleWhite = "text colorNever";
-          function outFun (a, c)
+          function outFun (divMin, c)
           {
-               var a = document.createElement('div');
-               a.className = c;
-               a.innerHTML = list[i];
-               document.body.appendChild(a);
+               var divMin = document.createElement('div');
+               divMin.className = c;
+               divMin.innerHTML = list[i];
+               document.body.appendChild(divMin);
           }   
     
         list.push ( `Помойка ${Name} хавает  ${Result} литров топлива \n`);
