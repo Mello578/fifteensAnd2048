@@ -94,20 +94,22 @@ function calculate()
         minIndex = parseInt(listNumb.indexOf(min));  // Нашли индексы min, max
         maxIndex = parseInt(listNumb.indexOf(max));
 
-        for (i = 0; i < list.length; i++) {
-            if (i == minIndex) {
+        for (i = 0; i < list.length; i++) 
+            {
+            if (i == minIndex) 
+                {
                  var divMin;
                  outFun ("text colorGreen");  
-              
-            }
-            else if (i == maxIndex) {
+                 }
+            else if (i == maxIndex)
+               {
                var divMin;
-                        outFun ("text colorRed");   
-            }
+                 outFun ("text colorRed");   
+               }
             else {
                  var divMin;
               outFun (text colorNever");   
             }
-        }
+        
     }
 }
