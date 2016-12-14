@@ -63,13 +63,13 @@ function calculate()
           const styleGreen = "text colorGreen";
           const styleRed = "text colorRed";
           const styleWhite = "text colorNever";
- /*           outFun (a, c)
+           outFun (a, c)
           {
                var a = document.createElement('div');
                a.className = c;
                a.innerHTML = list[i];
                document.body.appendChild(a);
-          }   */
+          }   
     
         list.push ( `Помойка ${Name} хавает  ${Result} литров топлива \n`);
         listNumb.push (parseInt( Result));
@@ -82,12 +82,12 @@ function calculate()
                  {
                     for (i = 0; i < list.length; i++)
                     {
-                     /*     var divMin;
-                        outFun (divMin, styleWhite);  */
-                      var divMin2 = document.createElement('div');
+                          var divMin="divMin"+i;
+                        outFun (divMin, styleWhite);  
+                    /*  var divMin2 = document.createElement('div');
                         divMin2.className = "text2";
                         divMin2.innerHTML = list[i];
-                        document.body.appendChild(divMin2);  
+                        document.body.appendChild(divMin2);  */
                     }
                 }
     else {               // Если не все равны, то ищем минимум и максимум и выводим в список по цветам
