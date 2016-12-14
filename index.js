@@ -7,14 +7,14 @@ function addfields()
 {
     var quality = parseInt(quantity.value, 10);   /*Загоняем в переменную количество лохов*/
     quality+=b;
-        for (var i = b; i < quality; i++)
-        {
-            addForm();
-        }
-   }
+    for (var i = b; i < quality; i++)
+    {
+        addForm();
+    }
+}
 
 
-function addForm() 
+function addForm()
 {
     var newName = document.createElement("input");   /* создаем форму input */
     newName.type = "text";                           /* устанвливаем тип формы */
@@ -22,17 +22,17 @@ function addForm()
     newName.value = "";
     newName.placeholder = "Имя лоха";
 
-      var newDistance = document.createElement("input");   
-        newDistance.type = "text";                           
-        newDistance.id = "distance" + b;                        
-        newDistance.value = "";
-        newDistance.placeholder = "Расстояние";
+    var newDistance = document.createElement("input");
+    newDistance.type = "text";
+    newDistance.id = "distance" + b;
+    newDistance.value = "";
+    newDistance.placeholder = "Расстояние";
 
-            var newConsumption = document.createElement("input");
-            newConsumption.type = "text";
-            newConsumption.id = "consumption" + b;
-            newConsumption.value = "";
-            newConsumption.placeholder = "Количество толива";
+    var newConsumption = document.createElement("input");
+    newConsumption.type = "text";
+    newConsumption.id = "consumption" + b;
+    newConsumption.value = "";
+    newConsumption.placeholder = "Количество толива";
 
     document.getElementById('myForm').appendChild(newName);    /* Размещаем форму */
     newName.style.display = "block";
@@ -43,8 +43,8 @@ function addForm()
     b++;
 }
 
-function calculate() 
-{
+function calculate()
+    {
 
     var list = new Array;      //Список под текст
     var listNumb = new Array; //Список под числа
@@ -53,60 +53,56 @@ function calculate()
     var minIndex;  //индекс минимального числа
     var maxIndex;
     var equally=0; //Сранение всех элементов
-  
-     for (i=0; i<b; i++)              // записываем в списки расход и полные сообщения
-      {
+   
+        function outFun (c)
+        {
+            var divMin = document.createElement('div');
+            divMin.className = c;
+            divMin.innerHTML = list[i];
+            document.body.appendChild(divMin);
+        }
+    
+    for (i=0; i<b; i++)              // записываем в списки расход и полные сообщения
+    {
         const Name = document.getElementById('name' + i).value;
         const Distance = parseInt(document.getElementById('distance' + i).value);
         const Consumption = parseInt(document.getElementById('consumption' + i).value);
-        const Result = parseInt(Consumption / Distance * 100);
-          
-          function outFun (c)
-          {
-               var divMin = document.createElement('div');
-               divMin.className = c;
-               divMin.innerHTML = list[i];
-               document.body.appendChild(divMin);
-          }   
-    
+        const Result = parseFloat((Consumption / Distance * 100).toFixed(3));
         list.push ( `Помойка ${Name} хавает  ${Result} литров топлива \n`);
-        listNumb.push (parseInt( Result));
+        listNumb.push (Result);
     }
-    for (i=0; i<listNumb.length; i++)       //Сравниваем все элементы
-        {
-            equally +=listNumb[i];
-        }
-            if (equally/listNumb.length == listNumb[0])      // Если все равны, то заносим всё в обычный список
-                 {
-                    for (i = 0; i < list.length; i++)
+            for (i=0; i<listNumb.length; i++)       //Сравниваем все элементы
+              {
+                equally +=listNumb[i];
+               }
+                    if (equally/listNumb.length == listNumb[0])      // Если все равны, то заносим всё в обычный список
                     {
-                       
-                        outFun ("text colorNever");  
-                     }
-                }
-    else {               // Если не все равны, то ищем минимум и максимум и выводим в список по цветам
-        min = Math.min.apply(null, listNumb);     // Нашли min, max
-        max = Math.max.apply(null, listNumb);
-        minIndex = parseInt(listNumb.indexOf(min));  // Нашли индексы min, max
-        maxIndex = parseInt(listNumb.indexOf(max));
-
-        for (i = 0; i < list.length; i++) 
-            {
-            if (i == minIndex) 
-                {
-                 var divMin;
-                 outFun ("text colorGreen");  
-                 }
-                        else if (i == maxIndex)
-                           {
-                           var divMin;
-                            outFun ("text colorRed");   
-                           }
-                                else 
+                        for (i = 0; i < list.length; i++)
+                        {
+                            outFun ("text colorNever");
+                        }
+                    }
+                    else
+                    {               // Если не все равны, то ищем минимум и максимум и выводим в список по цветам
+                        min = Math.min.apply(null, listNumb);     // Нашли min, max
+                        max = Math.max.apply(null, listNumb);
+                        minIndex = listNumb.indexOf(min);  // Нашли индексы min, max
+                        maxIndex = listNumb.indexOf(max);
+                
+                        for (i = 0; i < list.length; i++)
+                        {
+                            if (i == minIndex)
+                            {
+                                outFun ("text colorGreen");
+                            }
+                                else if (i == maxIndex)
                                 {
-                                  var divMin;
-                                  outFun ("text colorNever");   
+                                    outFun ("text colorRed");
                                 }
-           }
+                                    else
+                                    {
+                                        outFun ("text colorNever");
+                                    }
+                        }
+                    }
     }
-}
