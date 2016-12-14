@@ -83,7 +83,7 @@ function calculate()
                     for (i = 0; i < list.length; i++)
                     {
                        
-                        outFun (styleWhite);  
+                        outFun ("text colorNever");  
                     /*  var divMin2 = document.createElement('div');
                         divMin2.className = "text2";
                         divMin2.innerHTML = list[i];
