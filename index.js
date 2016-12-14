@@ -63,7 +63,7 @@ function calculate()
           const styleGreen = "text colorGreen";
           const styleRed = "text colorRed";
         const styleWhite = "text colorNever";
-          function outFun (divMin, c)
+          function outFun (c)
           {
                var divMin = document.createElement('div');
                divMin.className = c;
@@ -82,8 +82,8 @@ function calculate()
                  {
                     for (i = 0; i < list.length; i++)
                     {
-                       var divMin = "divMin"+i;
-                        outFun (divMin, styleWhite);  
+                       
+                        outFun (styleWhite);  
                     /*  var divMin2 = document.createElement('div');
                         divMin2.className = "text2";
                         divMin2.innerHTML = list[i];
