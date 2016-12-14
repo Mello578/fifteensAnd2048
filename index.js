@@ -82,11 +82,7 @@ function calculate()
                     {
                        
                         outFun ("text colorNever");  
-                    /*  var divMin2 = document.createElement('div');
-                        divMin2.className = "text2";
-                        divMin2.innerHTML = list[i];
-                        document.body.appendChild(divMin2);  */
-                    }
+                     }
                 }
     else {               // Если не все равны, то ищем минимум и максимум и выводим в список по цветам
         min = Math.min.apply(null, listNumb);     // Нашли min, max
@@ -101,15 +97,16 @@ function calculate()
                  var divMin;
                  outFun ("text colorGreen");  
                  }
-            else if (i == maxIndex)
-               {
-               var divMin;
-                 outFun ("text colorRed");   
-               }
-            else {
-                 var divMin;
-              outFun (text colorNever");   
-            }
-        
-    }
+                        else if (i == maxIndex)
+                           {
+                           var divMin;
+                            outFun ("text colorRed");   
+                           }
+                                else 
+                                {
+                                  var divMin;
+                                  outFun (text colorNever");   
+                                }
+           }
+    }}
 }
