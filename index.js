@@ -91,13 +91,13 @@ function calculate()
                 divMin.innerHTML = list[i];
                 document.body.appendChild(divMin);
             }
-            if (i == maxIndex) {
+            else if (i == maxIndex) {
                 var divMin1 = document.createElement('div');
                 divMin1.className = "text colorRed";
                 divMin1.innerHTML = list[i];
                 document.body.appendChild(divMin1);
             }
-            if (i != minIndex && i != maxIndex) {
+            else {
                 var divMin2 = document.createElement('div');
                 divMin2.className = "text colorNever";
                 divMin2.innerHTML = list[i];
