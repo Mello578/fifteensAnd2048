@@ -105,8 +105,8 @@ function calculate()
                                 else 
                                 {
                                   var divMin;
-                                  outFun (text colorNever");   
+                                  outFun ("text colorNever");   
                                 }
            }
-    }}
+    }
 }
