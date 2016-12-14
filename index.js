@@ -65,11 +65,10 @@ function calculate()
           const styleWhite = "text colorNever";
             outFun (a, c)
           {
-             
-                        var a = document.createElement('div');
-                        a.className = c;
-                        a.innerHTML = list[i];
-                        document.body.appendChild(a);
+               var a = document.createElement('div');
+               a.className = c;
+               a.innerHTML = list[i];
+               document.body.appendChild(a);
           }
     
         list.push ( `Помойка ${Name} хавает  ${Result} литров топлива \n`);
