@@ -82,7 +82,7 @@ function calculate()
                  {
                     for (i = 0; i < list.length; i++)
                     {
-                          var divMin="divMin"+i;
+                          var divMin;
                         outFun (divMin, styleWhite);  
                     /*  var divMin2 = document.createElement('div');
                         divMin2.className = "text2";
