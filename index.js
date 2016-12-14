@@ -63,7 +63,7 @@ function calculate()
           const styleGreen = "text colorGreen";
           const styleRed = "text colorRed";
           const styleWhite = "text colorNever";
-           outFun (a, c)
+          function outFun (a, c)
           {
                var a = document.createElement('div');
                a.className = c;
