@@ -60,9 +60,7 @@ function calculate()
         const Distance = parseInt(document.getElementById('distance' + i).value);
         const Consumption = parseInt(document.getElementById('consumption' + i).value);
         const Result = parseInt(Consumption / Distance * 100);
-          const styleGreen = "text colorGreen";
-          const styleRed = "text colorRed";
-        const styleWhite = "text colorNever";
+          
           function outFun (c)
           {
                var divMin = document.createElement('div');
@@ -98,28 +96,17 @@ function calculate()
 
         for (i = 0; i < list.length; i++) {
             if (i == minIndex) {
-              /*    var divMin;
-                        outFun (divMin, styleGreen);  */
-              var divMin = document.createElement('div');
-                divMin.className = "text colorGreen";
-                divMin.innerHTML = list[i];
-                document.body.appendChild(divMin); 
+                 var divMin;
+                 outFun ("text colorGreen");  
+              
             }
             else if (i == maxIndex) {
-              /*     var divMin;
-                        outFun (divMin, styleRed);  */
-             var divMin1 = document.createElement('div');
-                divMin1.className = "text colorRed";
-                divMin1.innerHTML = list[i];
-                document.body.appendChild(divMin1);   
+               var divMin;
+                        outFun ("text colorRed");   
             }
             else {
-             /*      var divMin;
-                        outFun (divMin, styleWhite);   */
-             var divMin2 = document.createElement('div');
-                divMin2.className = "text colorNever";
-                divMin2.innerHTML = list[i];
-                document.body.appendChild(divMin2);  
+                 var divMin;
+              outFun (text colorNever");   
             }
         }
     }
