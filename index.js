@@ -62,7 +62,7 @@ function calculate()
         const Result = parseInt(Consumption / Distance * 100);
           const styleGreen = "text colorGreen";
           const styleRed = "text colorRed";
-          const styleWhite = "text colorNever";
+        //  const styleWhite = "text colorNever";
           function outFun (divMin, c)
           {
                var divMin = document.createElement('div');
@@ -82,8 +82,8 @@ function calculate()
                  {
                     for (i = 0; i < list.length; i++)
                     {
-                          var divMin;
-                        outFun (divMin, styleWhite);  
+                        //var divMin;
+                        outFun (var divMin, "text colorNever");  
                     /*  var divMin2 = document.createElement('div');
                         divMin2.className = "text2";
                         divMin2.innerHTML = list[i];
