@@ -83,8 +83,8 @@ function calculate()
                  {
                     for (i = 0; i < list.length; i++)
                     {
-                        var divMin[i];
-                        outFun (divMin[i], stileWhite);
+                        var divMin;
+                        outFun (divMin, stileWhite);
                     /*    var divMin2 = document.createElement('div');
                         divMin2.className = "text2";
                         divMin2.innerHTML = list[i];
@@ -99,24 +99,24 @@ function calculate()
 
         for (i = 0; i < list.length; i++) {
             if (i == minIndex) {
-                var divMin[i];
-                        outFun (divMin[i], stileGreen);
+                var divMin;
+                        outFun (divMin, stileGreen);
           /*      var divMin = document.createElement('div');
                 divMin.className = "text colorGreen";
                 divMin.innerHTML = list[i];
                 document.body.appendChild(divMin); */
             }
             else if (i == maxIndex) {
-                var divMin[i];
-                        outFun (divMin[i], stileRed);
+                var divMin;
+                        outFun (divMin, stileRed);
             /*    var divMin1 = document.createElement('div');
                 divMin1.className = "text colorRed";
                 divMin1.innerHTML = list[i];
                 document.body.appendChild(divMin1);   */
             }
             else {
-                var divMin[i];
-                        outFun (divMin[i], stileWhite);
+                var divMin;
+                        outFun (divMin, stileWhite);
            /*     var divMin2 = document.createElement('div');
                 divMin2.className = "text colorNever";
                 divMin2.innerHTML = list[i];
