@@ -33,12 +33,12 @@ function addForm() {
     newConsumption.value = "";
     newConsumption.placeholder = "Количество толива";
 
-    document.getElementById('myForm').appendChild(newName);
+    document.getElementById('myFormInput').appendChild(newName);
     /* Размещаем форму */
     newName.style.display = "block";
-    document.getElementById('myForm').appendChild(newDistance);
+    document.getElementById('myFormInput').appendChild(newDistance);
     newDistance.style.display = "block";
-    document.getElementById('myForm').appendChild(newConsumption);
+    document.getElementById('myFormInput').appendChild(newConsumption);
     newConsumption.style.display = "block";
     b++;
 }
@@ -54,10 +54,13 @@ function calculate() {
     var equally = 0; //Сранение всех элементов
 
     function outFun(c) {
+
         const divMin = document.createElement('div');
         divMin.className = c;
         divMin.innerHTML = list[i];
-        document.body.appendChild(divMin);
+        // document.body.appendChild(divMin);
+        document.getElementById('myFormOutput').appendChild(divMin);
+        divMin.style.display = "block";
     }
 
     for (i = 0; i < b; i++)              // записываем в списки расход и полные сообщения
@@ -67,20 +70,20 @@ function calculate() {
         const Consumption = parseInt(document.getElementById('consumption' + i).value);
         const Result = parseFloat(Consumption / Distance * 100, 10).toFixed(3);
         list.push(`Помойка ${Name} хавает  ${Result} литров топлива \n`);
-        listNumb.push(Result);
+        listNumb.push(parseInt(Result));
     }
     // console.log(list);
-   // console.log(listNumb);
-    
+    // console.log(listNumb);
+
     //Сравниваем все элементы
     for (let i = 0; i < listNumb.length; i++) {
-        equally += listNumb[i];
+        equally += parseInt(listNumb[i]);
     }
 
     // Если все равны, то заносим всё в обычный список
     if (equally / listNumb.length == listNumb[0]) {
-        for (i = 0; i < list.length; i++) {
-            outFun("text colorNever");
+        for (i = 0; i < listNumb.length; i++) {
+            outFun("colorNever");
         }
     } else {
         // Если не все равны, то ищем минимум и максимум и выводим в список по цветам
@@ -91,11 +94,14 @@ function calculate() {
 
         for (i = 0; i < list.length; i++) {
             if (i == minIndex) {
-                outFun("text colorGreen");
+                let a="colorGreen";
+                outFun(a);
             } else if (i == maxIndex) {
-                outFun("text colorRed");
+                let a="colorRed";
+                outFun(a);
             } else {
-                outFun("text colorNever");
+                let a="colorNever";
+                outFun(a);
             }
         }
     }
