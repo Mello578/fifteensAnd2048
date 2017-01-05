@@ -74,17 +74,25 @@ footer{
 .block {
     border: 3px solid #EEEEEE;
     padding: 15px 10px;
-    width: 200px;
+    width: 150px;
 }
 .block2 {
     border: 3px solid #EEEEEE;
     padding: 50px 20px;
-    width: 600px;
+    width: 400px;
 }
 .text {
     border: 3px solid #EEEEEE;
     padding: 10px 30px;
     width: 300px;
     text-align: right;
+}
+.button {
+    width: 30px;
+    height: 30px;
+}
+.out {
+    width: 130px;
+    height: 50px;
 }
 
