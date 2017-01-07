@@ -46,28 +46,33 @@
                     <br>
 
                     <div class="block">
-                        <input class="out" type="number" id="quantity">
+                        <input class="out" type="number" id="quantity" value="null">
                         <br>
                         <br>
-                        <button class="button" value="7" name="seven-button">7</button>
-                        <button class="button" value="8" name="eight-button">8</button>
-                        <button class="button" value="9" name="nine-button">9</button>
-                        <button class="button" value="/" name="division-button">/</button>
+                        <button class="button" value="On" name="onOff-button" onclick="onOff()">On</button>
+                        <button class="button" value="C" name="cancel-button" onclick="cancelFun()">C</button>
+                        <button class="button" value="/" name="division-button" onclick="inputSign(value)">/</button>
+                        <button class="button" value="*" name="multiplication-button" onclick="inputSign(value)">*</button>
 
-                        <button class="button" value="4" name="four-button">4</button>
-                        <button class="button" value="5" name="five-button">5</button>
-                        <button class="button" value="6" name="six-button">6</button>
-                        <button class="button" value="*" name="multiplication-button">*</button>
+                        <button class="button" value="7" name="seven-button" onclick="inputNumber(value)">7</button>
+                        <button class="button" value="8" name="eight-button" onclick="inputNumber(value)">8</button>
+                        <button class="button" value="9" name="nine-button" onclick="inputNumber(value)">9</button>
+                        <button class="button" value="-" name="minus-button" onclick="inputSign(value)">-</button>
 
-                        <button class="button" value="1" name="one-button">1</button>
-                        <button class="button" value="2" name="two-button">2</button>
-                        <button class="button" value="3" name="three-button">3</button>
-                        <button class="button" value="-" name="minus-button">-</button>
+                        <button class="button" value="4" name="four-button" onclick="inputNumber(value)">4</button>
+                        <button class="button" value="5" name="five-button" onclick="inputNumber(value)">5</button>
+                        <button class="button" value="6" name="six-button" onclick="inputNumber(value)">6</button>
+                        <button class="button" value="+" name="plus-button" onclick="inputSign(value)">+</button>
 
-                        <button class="button" value="0" name="zero-button">0</button>
-                        <button class="button" value="." name="point-button">.</button>
-                        <button class="button" value="=" name="equally-button">=</button>
-                        <button class="button" value="+" name="plus-button">+</button>
+                        <button class="button" value="1" name="one-button" onclick="inputNumber(value)">1</button>
+                        <button class="button" value="2" name="two-button" onclick="inputNumber(value)">2</button>
+                        <button class="button" value="3" name="three-button" onclick="inputNumber(value)">3</button>
+                        <button class="button-equally" value="=" name="equally-button" onclick="equally()">=</button>
+
+                        <button class="button-zero" value="0" name="zero-button" onclick="inputNumber(value)">0</button>
+                        <button class="button" value="." name="point-button" onclick="inputNumber(value)">.</button>
+
+
                     </div>
 
 
