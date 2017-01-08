@@ -78,7 +78,7 @@ function equally() {
                 return numb1 * numb2;
                 break;
 
-            case '\\'  :
+            case '/'  :
                 return numb1 / numb2;
                 break;
 
