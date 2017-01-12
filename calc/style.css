@@ -74,7 +74,7 @@ footer{
 .block {
     border: 3px solid #EEEEEE;
     padding: 15px 10px;
-    width: 150px;
+    width: 135px;
 }
 .block2 {
     border: 3px solid #EEEEEE;
@@ -90,9 +90,31 @@ footer{
 .button {
     width: 30px;
     height: 30px;
+    vertical-align: top;
 }
+
+.button-zero {
+    width: 64px;
+    height: 30px;
+    vertical-align: top;
+}
+
+.button-equally {
+    width: 30px;
+    height: 60px;
+
+}
+
 .out {
     width: 130px;
     height: 50px;
 }
 
+
+
+.top2{
+    position: absolute;
+    left: 323px;
+    top: 362px;
+
+}
