@@ -11,15 +11,15 @@ var sign2 = null;  // переменная введенный знак
 var val;
 // Ввод чисел
 function inputNumber(b) {
-    if ( b != 0 && document.getElementById('quantity').value == 0 ) {
+    if (b != 0 && document.getElementById('quantity').value == 0) {
         document.getElementById('quantity').value = b;
         inspection == 0 ? number1(b) : number2(b);
     }
-    else if ( b == 0 && document.getElementById('quantity').value == 0 )  {
+    else if (b == 0 && document.getElementById('quantity').value == 0) {
         inspection == 0 ? number1(b) : number2(b);
     }
     else {
-       document.getElementById('quantity').value += b;
+        document.getElementById('quantity').value += b;
         val = document.getElementById('quantity').value;
         inspection == 0 ? number1(val) : number2(val);
     }
@@ -27,8 +27,8 @@ function inputNumber(b) {
 
 // ввод сигнала
 function inputSign(sign) {
-  //  var val = document.getElementById('quantity').value;  // табло
- //   inspection == 0 ? number1(val) : number2(val);
+    //  var val = document.getElementById('quantity').value;  // табло
+    //   inspection == 0 ? number1(val) : number2(val);
 
     switch (sign) {
 
