@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+body,
+footer{
+    background-color: #9ad5ff;
+}
+
+#main,
+#centercol,
+#content,
+#rightcol
+{
+    overflow: hidden;
+}
+
+.right {
+    text-align: right;
+    padding-right: 20px;
+}
+
+#content {
+    width: 80%;
+    min-height: 100%;
+    position: relative;
+    left: 10%;
+    min-width: 700px;
+    padding: 2px;
+    margin-bottom: 45px;
+    border-color: black;
+}
+
+#leftcol {
+
+    width: 20%;
+    float: left;
+    background-color: #ffffff;
+    height: 100%;
+}
+
+#centercol {
+    width: 80%;
+    background-color: aliceblue;
+    height: 100%;
+}
+
+#rightcol {
+    height: 100%;
+
+    width: 20%;
+    float: right;
+    background-color: coral;
+}
+
+footer{
+    height: 45px;
+    position: fixed;
+    bottom: 0;
+    padding: 5px;
+    color: black;
+    width: 100%;
+}
+
+.cent {
+    text-align: center;
+}
+
+.block {
+    border: 3px solid #EEEEEE;
+    padding: 15px 10px;
+    width: 135px;
+}
+.block2 {
+    border: 3px solid #EEEEEE;
+    padding: 50px 20px;
+    width: 400px;
+}
+.text {
+    border: 3px solid #EEEEEE;
+    padding: 10px 30px;
+    width: 300px;
+    text-align: right;
+}
+.button {
+    width: 30px;
+    height: 30px;
+    vertical-align: top;
+}
+
+.button-zero {
+    width: 64px;
+    height: 30px;
+    vertical-align: top;
+}
+
+.button-equally {
+    width: 30px;
+    height: 60px;
+    float: right;
+    vertical-align: middle;
+}
+
+.out {
+    width: 130px;
+    height: 50px;
+}
+
+
+
+.top2{
+
+
+}
+.cent {
+    text-align: center;
+}

@@ -3,78 +3,70 @@
     padding: 0;
 }
 
-body{
-    position: absolute;
+html,
+body {
+    height: 100%;
+}
+body,
+footer{
+    background-color: #9ad5ff;
+}
+
+#main,
+#centercol,
+#content,
+#rightcol
+{
+    overflow: hidden;
+}
+
+.right {
+    text-align: right;
+    padding-right: 20px;
+}
+
+#content {
     width: 80%;
-    height: auto;
-    background: url("img/player.png")  no-repeat;
-    background-position: 20% -16%;
-    background-size: 70%;
+    min-height: 100%;
+    position: relative;
+    left: 10%;
+    min-width: 700px;
+    padding: 2px;
+    margin-bottom: 45px;
+    border-color: black;
 }
 
-.left{
-    position: absolute;
-    top: 63px;
+#leftcol {
+
+    width: 20%;
     float: left;
-
+    background-color: lightcyan;
+    height: 100%;
 }
 
-li {
-    list-style-type: none;
+#centercol {
+    width: 80%;
+    background-color: aliceblue;
+    height: 100%;
 }
 
-ul.topmenu {
-    float: left;
+#rightcol {
+    height: 100%;
+
+    width: 20%;
+    float: right;
+    background-color: coral;
 }
 
-ul.topmenu > li {
-    position:relative;
-    width: 200px;
-    left: 40px;
-
+footer{
+    height: 45px;
+    position: fixed;
+    bottom: 0;
+    padding: 5px;
+    color: black;
+    width: 100%;
 }
 
-ul.topmenu a {
-    color:black;
-    display:none;
-    white-space:normal;
-    padding: 8px 30px;
-    background:white;
-    text-decoration:none;
-    cursor:pointer;
-}
-
-ul.labelmenu li:hover > ul.topmenu a{
-    display:block;
-}
-
-ul.topmenu a:hover {
-    background: lightgreen;
-}
-
-ul.menu {
-    width: 200px;
-    display:none;
-    position:absolute;
-    left:100%;
-    top: 0;
-}
-ul.topmenu li:hover > a {
-    background:lightgreen;
-}
-ul.topmenu li:hover > ul.menu{
-    display:block;
-}
-
-ul.menu li .sub {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background:white;
-    bottom:0;
-    display: none;
-}
-
-ul.menu li:hover .sub {
-    display: block;
+.cent {
+    text-align: center;
 }
