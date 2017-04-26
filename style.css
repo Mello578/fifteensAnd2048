@@ -5,16 +5,16 @@
 
 body{
     position: absolute;
-    width: 80%;
+    width: 90%;
     height: auto;
-    background: url("img/player.png")  no-repeat;
-    background-position: 20% -16%;
+    background: white url("img/player.png")  no-repeat;
+    background-position: 65px 124px;
     background-size: 70%;
 }
 
 .left{
     position: absolute;
-    top: 63px;
+    top: 110px;
     float: left;
 
 }
