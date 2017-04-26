@@ -40,7 +40,7 @@ footer{
 
     width: 20%;
     float: left;
-    background-color: lightcyan;
+    background-color: #ffffff;
     height: 100%;
 }
 
@@ -102,7 +102,8 @@ footer{
 .button-equally {
     width: 30px;
     height: 60px;
-
+    float: right;
+    vertical-align: middle;
 }
 
 .out {
@@ -113,8 +114,9 @@ footer{
 
 
 .top2{
-    position: absolute;
-    left: 323px;
-    top: 362px;
 
+
+}
+.cent {
+    text-align: center;
 }
