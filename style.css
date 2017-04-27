@@ -7,7 +7,7 @@ body{
     position: absolute;
     width: 80%;
     height: auto;
-    background: url("img/player.png")  no-repeat;
+    background: white url("img/player.png")  no-repeat;
     background-position: 20% -16%;
     background-size: 70%;
 }
