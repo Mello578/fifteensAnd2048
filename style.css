@@ -8,7 +8,11 @@ body{
     width: 90%;
     height: auto;
     background: white url("img/player.png")  no-repeat;
+<<<<<<< HEAD
     background-position: 65px 124px;
+=======
+    background-position: 20% -16%;
+>>>>>>> origin/master
     background-size: 70%;
 }
 
