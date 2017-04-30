@@ -17,6 +17,7 @@ p{
 li{
     height: 90px;
     text-align: center;
+    list-style-type: none;
 
 }
     ul.nav {
