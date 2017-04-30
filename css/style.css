@@ -1,0 +1,43 @@
+.row div{
+    padding-top: 0;
+    height: 100px;
+    background: white;
+}
+
+p{
+    color: gray;
+}
+
+.logo{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+li{
+    height: 90px;
+    text-align: center;
+
+}
+    ul.nav {
+    float: left;
+}
+
+    ul.nav > li {
+    position:relative;
+    width: 200px;
+    left: 100px;
+    top: 30px;
+
+}
+
+    ul.nav a {
+    color:black;
+    display:none;
+    white-space:normal;
+    cursor:pointer;
+    background: lightcyan;
+}
+    ul.label-menu li:hover > ul.nav a{
+    display: block;
+}
