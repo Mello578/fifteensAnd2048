@@ -12,6 +12,7 @@ p{
     position: absolute;
     left: 0;
     top: 0;
+    height: 400px;
 }
 
 li{
@@ -39,6 +40,9 @@ li{
     white-space:normal;
     cursor:pointer;
     background: white;
+    border: 2px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
     ul.label-menu li:hover > ul.nav a{
     display: block;
@@ -46,6 +50,15 @@ li{
 
 .dropdown-submenu {
     position: relative;
+}
+
+.dropdown-menu {
+
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0);
+
 }
 
 .dropdown-submenu>.dropdown-menu {
@@ -84,4 +97,3 @@ li{
 .height-menu{
     height: auto;
 }
-
