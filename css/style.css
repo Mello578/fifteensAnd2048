@@ -1,50 +1,55 @@
-.row div{
+.row div {
     padding-top: 0;
     height: 100px;
     background: white;
 }
 
-p{
+p {
     color: gray;
 }
 
-.logo{
+.left_panel {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -45px;
+    top: 0px;
     height: 400px;
+    width: auto;
 }
 
-li{
-    height: 90px;
+li {
+    height: 43px;
     text-align: center;
     list-style-type: none;
-
+    position: relative;
 }
-    ul.nav {
+
+ul.nav {
     float: left;
 }
 
-    ul.nav > li {
-    position:relative;
-    width: 200px;
-    left: 100px;
-    top: 30px;
-
-
+ul.nav > li {
+    position: relative;
+    width: 280px;
+    left: -50px;
+    top: 10px;
 }
 
-    ul.nav a {
-    color:black;
-    display:none;
-    white-space:normal;
-    cursor:pointer;
+.left_panel {
+    display: block;
+}
+
+ul.nav a {
+    color: black;
+    display: none;
+    white-space: normal;
+    cursor: pointer;
     background: white;
     border: 2px solid rgba(0, 0, 0, .15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
-    ul.label-menu li:hover > ul.nav a{
+
+ul.label-menu li:hover > ul.nav a {
     display: block;
 }
 
@@ -53,7 +58,6 @@ li{
 }
 
 .dropdown-menu {
-
     border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -61,7 +65,7 @@ li{
 
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: -6px;
@@ -69,11 +73,11 @@ li{
 
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu {
     display: block;
 }
 
-.dropdown-submenu>a:after {
+.dropdown-submenu > a:after {
     display: block;
     content: " ";
     float: right;
@@ -83,17 +87,15 @@ li{
     margin-right: -10px;
 }
 
-
-
 .dropdown-submenu.pull-left {
     float: none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
+.dropdown-submenu.pull-left > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
 }
 
-.height-menu{
+.height-menu {
     height: auto;
 }
