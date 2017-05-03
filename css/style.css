@@ -99,18 +99,3 @@ ul.label-menu li:hover > ul.nav a {
 .height-menu {
     height: auto;
 }
-
-.flex-kol {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-height: 500px;
-    max-width: 200px;
-}
-
-.flex-width {
-    max-width: 150px;
-}
-
-
