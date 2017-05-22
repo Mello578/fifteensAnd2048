@@ -95,7 +95,7 @@ document.getElementById('START').onclick = function start() {
                     let randY = Math.round(3 * Math.random()),
                         randX = Math.round(3 * Math.random());
                     //Переставление пятнашек с проверкой на решаемость
-                    if (randY != key && randX != key2 && (randY == key + 1 || randY == key - 1 || randX == key2 + 1 || randX == key2 - 1)) {
+                    if (randY != key && randX != key2) {
                         let content = $(rowsFinish[randY][randX]).html();
                         $(rowsFinish[key][key2]).append(content);
                         $(rowsFinish[randY][randX]).html('');
@@ -104,6 +104,7 @@ document.getElementById('START').onclick = function start() {
             }
         }
     }
+
 
 };
 
