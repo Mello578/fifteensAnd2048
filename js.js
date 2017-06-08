@@ -147,16 +147,17 @@ window.onload = function () {
     }
 
 }
-let x, y, number;
 
-$(function () {
+$(window).load(function() {
+    $(function () {
+        let x, y, number;
+        $('.click-table td').on('click', function () {
+            y = $(this).parent('tr').index();
+            x = $(this).index();
+            number = $(this).html();
+            motionCell(y, x, number);
 
-    $('.click-table td').on('click', function () {
-        y = $(this).parent('tr').index();
-        x = $(this).index();
-        number = $(this).html();
-        motionCell(y, x, number);
-
+        });
     });
 });
 
