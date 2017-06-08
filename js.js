@@ -2,7 +2,7 @@
  * Created by Sysadmin on 18.05.2017.
  */
 
-let rows = [], etalonRows = [];
+let rows = [], standartRows = [];
 
 
 // создаем таблицу
@@ -84,7 +84,7 @@ window.onload = function () {
 
     //массив с правильным расположением ячеек
     for (let key in specks){
-        etalonRows.push(specks[key]);
+        standartRows.push(specks[key]);
     }
 
 // заполняем поле пятнашками
@@ -138,7 +138,8 @@ window.onload = function () {
                 shufleTable[j] != 0 && shufleTable[j] < shufleId ? summ++ : summ + 0;
             }
         }
-        (summ + 1) % 2 !== 0 ? shufle() : summ;
+        //4 - номер ряда пустой клетки
+        (summ + 4)%2 !== 0 ? shufle() : summ;
     }
 
     // старт игры
@@ -191,7 +192,7 @@ document.getElementById('FINISH').onclick = function finish() {
         }
             }
             for (let key in finishRows){
-                finishRows[key] === etalonRows[key].speck ? counter++ : counter;
+                finishRows[key] === standartRows[key].speck ? counter++ : counter;
             }
 
     if (counter === 16) {
