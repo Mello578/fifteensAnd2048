@@ -148,7 +148,7 @@ window.onload = function () {
 
 }
 
-$(window).load(function() {
+$(document).ready(function() {
     $(function () {
         let x, y, number;
         $('.click-table td').on('click', function () {
