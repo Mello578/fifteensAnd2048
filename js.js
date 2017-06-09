@@ -134,12 +134,17 @@ window.onload = function () {
         }
         for (let i = 0; i < shufleTable.length; i++) {
             let shufleId = shufleTable[i];
-            for (let j = i + 1; j < shufleTable.length; j++) {
-                shufleTable[j] != 0 && shufleTable[j] < shufleId ? summ++ : summ + 0;
+            //4 - номер ряда пустой клетки
+            if (shufleId === 0) {
+                summ += Math.ceil(i/4);
+            } else {
+                for (let j = i + 1; j < shufleTable.length; j++) {
+                    (shufleTable[j] != 0 && shufleTable[j] < shufleId) ? summ++ : summ += 0;
+                }
             }
         }
-        //4 - номер ряда пустой клетки
-        (summ + 4)%2 !== 0 ? shufle() : summ;
+
+        summ%2 !== 0 ? shufle() : summ;
     }
 
     // старт игры
