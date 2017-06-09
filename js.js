@@ -83,7 +83,7 @@ window.onload = function () {
     }];
 
     //массив с правильным расположением ячеек
-    for (let key in specks){
+    for (let key in specks) {
         standartRows.push(specks[key]);
     }
 
@@ -97,7 +97,9 @@ window.onload = function () {
                 countSpeck++;
             }
         }
-        }());
+    }());
+
+}
 
     //перемешивание ячеек
 
@@ -152,10 +154,10 @@ window.onload = function () {
         shufle();
     }
 
-}
 
-$(document).ready(function() {
-    $(function () {
+
+  $(window).ready(function() {
+   $(function () {
         let x, y, number;
         $('.click-table td').on('click', function () {
             y = $(this).parent('tr').index();
