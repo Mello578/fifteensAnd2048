@@ -2,7 +2,7 @@
 body {
     background-image: url(12.jpg);
     background-repeat: no-repeat ;
-    background-size: 90%;
+    background-size: cover;
 }
 
 a.button {
