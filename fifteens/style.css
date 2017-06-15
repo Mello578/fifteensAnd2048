@@ -1,0 +1,13 @@
+td { display: block; float: left; border: 2px double black; }
+table {
+    border-collapse: collapse; /* Отображать только одинарные линии */
+
+    position: relative;
+    left: 195px;
+    bottom: -67px;
+
+}
+body {background: url("img/ramka.png") 166px 154px no-repeat; background-position-y: 50px}
+
+button {position: absolute;}
+.fin {top: 50px;}
