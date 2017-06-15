@@ -3,7 +3,7 @@ body {
     background-image: url(12.jpg);
     background-repeat: no-repeat ;
     background-size: 80%;
-    background-position-x: 100%;
+    background-position-x: center;
 }
 
 a.button {
