@@ -1,0 +1,52 @@
+td{ display: block; float: left; border: 5px solid #d6ae59; text-align: center;
+padding-top: 0px; font-size: 40px; border-radius: 15px;}
+
+table {
+    border-collapse: separate; /* Отображать только одинарные линии */
+    position: relative;
+    margin: auto;
+    background: #d6ae59;
+    border: 10px solid #d6ae59;
+    border-radius: 15px;
+    }
+h1 {
+    text-align: center;
+}
+
+.backgrondCell {
+    background: #fff1b8;
+}
+
+.spell2 {
+    background: lightgrey;
+
+
+}
+
+.spell4 {
+    background: gray;
+}
+
+.spell8 {
+    background: orange;
+}
+
+.spell16 {
+    background: orangered;
+}
+
+.spell32 {
+    background: coral;
+}
+
+.spell64 {
+    background: red;
+}
+
+.spell128 {
+    background: #f8fa8c;
+}
+
+.spell256 {
+    background: yellow;
+}
