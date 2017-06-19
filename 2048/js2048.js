@@ -185,6 +185,8 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
+
+
 let touchstartX = 0;
 let touchstartY = 0;
 let touchendX = 0;
@@ -213,6 +215,8 @@ function handleGesure() {
 
         globalCount !== 0 ? createSpell() : globalCount;
         globalCount = 0;
+        alert(touchendY);
+        alert(touchstartY);
     }
     if (touchendX > touchstartX) {
         for (let i = 0; i < rows.length; i++) {
@@ -225,6 +229,8 @@ function handleGesure() {
         }
         globalCount !== 0 ? createSpell() : globalCount;
         globalCount = 0;
+        alert(touchendY);
+        alert(touchstartY);
     }
     if (touchendY < touchstartY) {
         for (let j = 0; j < rows.length; j++) {
@@ -237,6 +243,8 @@ function handleGesure() {
         }
         globalCount !== 0 ? createSpell() : globalCount;
         globalCount = 0;
+        alert(touchendY);
+        alert(touchstartY);
     }
     if (touchendY > touchstartY) {
         for (let j = 0; j < rows.length; j++) {
@@ -247,10 +255,14 @@ function handleGesure() {
             shiftCell(rowsUp);
             unionCell(rowsUp);
         }
+        alert(touchendY);
+        alert(touchstartY);
         globalCount !== 0 ? createSpell() : globalCount;
         globalCount = 0;
     }
     if (touchendY == touchstartY) {
-      
+alert(touchendY);
+alert(touchstartY);
+
     }
 }
