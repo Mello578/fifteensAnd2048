@@ -15,6 +15,10 @@ table {
     }
 h1 {
     text-align: center;
+    color: #776e65;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 90px;
+    font-weight: 600;
 }
 
 .backgrondCell {
