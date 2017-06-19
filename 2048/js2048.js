@@ -192,7 +192,8 @@ let touchstartY = 0;
 let touchendX = 0;
 let touchendY = 0;
 
-let gesuredZone = document.getElementById('gesuredZone');
+let gesuredZone = document.createElement('gesuredZone');// getElementById('gesuredZone');
+gesuredZone.id = 'gesuredZone';
 
 gesuredZone.addEventListener('touchstart', function (event) {
     touchstartX = event.screenX;
