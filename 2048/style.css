@@ -1,5 +1,5 @@
 td{ display: block; float: left; border: 5px solid #d6ae59; text-align: center;
-padding-top: 0px; font-size: 40px; border-radius: 15px;}
+padding-top: 15px; font-size: 40px; border-radius: 15px; vertical-align: middle;}
 
 table {
     border-collapse: separate; /* Отображать только одинарные линии */
@@ -8,6 +8,10 @@ table {
     background: #d6ae59;
     border: 10px solid #d6ae59;
     border-radius: 15px;
+    color: #776e65;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 600;
     }
 h1 {
     text-align: center;
@@ -15,38 +19,61 @@ h1 {
 
 .backgrondCell {
     background: #fff1b8;
+
 }
 
 .spell2 {
     background: lightgrey;
-
+    color: #262630;
 
 }
 
 .spell4 {
     background: gray;
+    color: #262630;
 }
 
 .spell8 {
-    background: orange;
+    background: #ffb600;
+    color: white;
 }
 
 .spell16 {
-    background: orangered;
+    background: #ff7d00;
+    color: white;
 }
 
 .spell32 {
-    background: coral;
+    background: #ff53db;
+    color: white;
 }
 
 .spell64 {
     background: red;
+    color: white;
 }
 
 .spell128 {
-    background: #f8fa8c;
+    background: #49fa0a;
+    color: #ffffff;
 }
 
 .spell256 {
-    background: yellow;
+    background: #0043ff;
+    color: white;
+}
+
+.spell512 {
+    background: #ffe702;
+    color: white;
+}
+
+.animated {
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+
+.animatedCreateCell {
+    transition-property: background-color;
+    transition-duration: 2s;
 }

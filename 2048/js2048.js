@@ -1,6 +1,7 @@
 /**
  * Created by Jet on 15.06.2017.
  */
+var globalCount = 0;
 let rows = [];
 var table = document.createElement('table'),
     fragment = document.createDocumentFragment(),
@@ -20,124 +21,236 @@ while (r--) {
 }
 document.body.appendChild(fragment.appendChild(table));
 
-for (let key in rows){
+for (let key in rows) {
     $(rows[key]).addClass('backgrondCell');
-  }
+    $(rows[key]).addClass('animated');
+}
 
 $('table').addClass('click-table');
-$('tr').css('height', '90px');
+$('tr').css('height', '75px');
 $('tr').css('width', '90px');
-$('td').css('height', '90px');
+$('td').css('height', '75px');
 $('td').css('width', '90px');
 
 
-function creatSpell() {
+function createSpell() {
     let rand = 0;
-    let x = Math.floor(Math.random() * 4);
-    let y = Math.floor(Math.random() * 4);
-    if ($(rows[x][y]).html() == '') {
-        Math.floor(Math.random() * 1000) < 700 ? rand = 2 : rand = 4;
-        $(rows[x][y]).append(rand).addClass('spell' + rand);
-    } else {
-        creatSpell();
-    }
-}
-
-creatSpell();
-creatSpell();
-
-function unionCell(currentCell, previousCell) {
-    if ($(currentCell).html() === $(previousCell).html() && $(currentCell).html() !== '') {
-        let classA = $(previousCell).attr('class');
-        let classB = $(currentCell).attr('class');
-        let sum = parseInt(classA.replace(/\D/g, '')) + parseInt(classB.replace(/\D/g, ''));
-        $(previousCell).html(sum).attr('class', 'spell' + sum);
-        $(currentCell).html('').attr('class', 'backgrondCell');
-    }
-}
-
-function shiftCellY(currentCell, previousCell) {
-
-        unionCell(currentCell, previousCell);
-        if ($(previousCell).html() === '' && $(currentCell).html() !== '') {
-            let classA = $(currentCell).attr('class');
-            classA = parseInt(classA.replace(/\D/g, ''));
-            $(previousCell).html(classA).attr('class', 'spell' + classA);
-            $(currentCell).html('').attr('class', 'backgrondCell');
-            unionCell(currentCell, previousCell);
+    let nullCount = 0;
+    for (let key in rows) {
+        for (let key2 in rows[key]) {
+            $(rows[key][key2]).html() === '' ? nullCount++ : nullCount;
         }
 
+    }
+    if (nullCount !== 0) {
+        let x = Math.floor(Math.random() * 4);
+        let y = Math.floor(Math.random() * 4);
+        if ($(rows[x][y]).html() == '') {
+            Math.floor(Math.random() * 1000) < 700 ? rand = 2 : rand = 4;
+            $(rows[x][y]).addClass('.animatedCreateCell');
+            $(rows[x][y]).append(rand).addClass('spell' + rand);
+        } else {
+            createSpell();
+        }
+    } else {
+        alert("Вы проиграли!");
+    }
 }
 
-document.body.addEventListener("keydown", function(event) {
+createSpell();
+createSpell();
+
+
+function shiftCell(currentMas) {
+    let nullCells = 0;
+    let count = 0;
+    for (let i = 0; i < currentMas.length; i++) {
+        $(currentMas[i]).html() === '' ? nullCells++ : nullCells;
+    }
+    if (nullCells < 4) {
+        let countNull = $(currentMas[0]).html() === '' ? 1 : 0;
+        for (let i = 1; i < currentMas.length; i++) {
+            let currentCell = currentMas[i];
+            $(currentCell).html() === '' ? countNull++ : countNull;
+            if ($(currentCell).html() !== '') {
+                for (let k = 0; k < countNull; k++) {
+                    let classA = $(currentMas[i - k]).attr('class'),
+                        valueCell;
+                    classA = parseInt(classA.replace(/\D/g, ''));
+                    if (classA > 256) {
+                        valueCell = classA;
+                        classA = 512
+                    } else {
+                        valueCell = classA;
+                    }
+
+                    $(currentMas[i - 1 - k]).html(valueCell).attr('class', 'spell' + classA);
+                    $(currentMas[i - k]).html('').attr('class', 'backgrondCell').addClass('animated');
+                    count++;
+
+                }
+            }
+        }
+    }
+    window.globalCount += count;
+
+}
+
+function unionCell(currentMas) {
+    let nullCells = 0;
+    let counter = 0;
+    for (let i = 0; i < currentMas.length; i++) {
+        $(currentMas[i]).html() === '' ? nullCells++ : nullCells;
+    }
+    if (nullCells < 4) {
+        for (let i = 1; i < currentMas.length; i++) {
+            let currentCell = currentMas[i],
+                previousCell = currentMas[i - 1];
+            if ($(currentCell).html() === $(previousCell).html() && $(currentCell).html() !== '') {
+                let classA = $(previousCell).attr('class');
+                let classB = $(currentCell).attr('class');
+                let valueCell;
+                let sum = parseInt(classA.replace(/\D/g, '')) + parseInt(classB.replace(/\D/g, ''));
+                if (sum > 256) {
+                    valueCell = sum;
+                    sum = 512
+                } else {
+                    valueCell = sum;
+                }
+                $(previousCell).html(valueCell).attr('class', 'spell' + sum);
+                $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
+                counter++;
+            }
+        }
+        shiftCell(currentMas);
+    }
+    window.globalCount += counter;
+}
+
+document.body.addEventListener("keydown", function (event) {
     switch (event.keyCode) {
         case  37:
 
             for (let i = 0; i < rows.length; i++) {
-                let counterNull = 1,
-                    counter = 0;
-                for (let j =  0; j < rows.length; j++) {
-                    $(rows[i][j]).html() === '' ? counterNull++ : counter++;
-                    if (counter > 0) {
-                        for (let k = 0; k < counterNull; k++) {
-                            shiftCellY(rows[i][j - k], rows[i][j - k - 1]);
-                        }
-                    }
-                }
+                shiftCell(rows[i]);
+                unionCell(rows[i]);
             }
-            creatSpell();
+
+            globalCount !== 0 ? createSpell() : globalCount;
+            globalCount = 0;
             break
 
         case 38:
 
             for (let j = 0; j < rows.length; j++) {
-                let counterNull = 1,
-                    counter = 0;
-                for (let i = 1; i < rows.length; i++) {
-                    $(rows[i][j]).html() === '' ? counterNull++ : counter++;
-                    if (counter > 0) {
-                        for (let k = 0; k < counterNull; k++) {
-                            shiftCellY(rows[i - k][j], rows[i - k - 1][j]);
-                        }
-                    }
+                let rowsUp = [];
+                for (let i = 0; i < rows.length; i++) {
+                    rowsUp.push(rows[i][j]);
                 }
+                shiftCell(rowsUp);
+                unionCell(rowsUp);
             }
-            creatSpell();
+            globalCount !== 0 ? createSpell() : globalCount;
+            globalCount = 0;
             break
 
         case 39:
 
+
             for (let i = 0; i < rows.length; i++) {
-                let counterNull = 1,
-                    counter = 0;
-                for (let j = rows.length - 2; j > -1; j--) {
-                    $(rows[i][j]).html() === '' ? counterNull++ : counter++;
-                    if (counter > 0) {
-                        for (let k = 0; k < counterNull; k++) {
-                            shiftCellY(rows[i][j + k], rows[i][j + k + 1]);
-                        }
-                    }
+                let rowsRight = [];
+                for (let j = rows.length - 1; j > -1; j--) {
+                    rowsRight.push(rows[i][j]);
                 }
+                shiftCell(rowsRight);
+                unionCell(rowsRight);
             }
-            creatSpell();
+            globalCount !== 0 ? createSpell() : globalCount;
+            globalCount = 0;
             break
 
         case 40:
 
             for (let j = 0; j < rows.length; j++) {
-                let counterNull = 1,
-                    counter = 0;
-                for (let i = rows.length - 2; i > -1; i--) {
-                    $(rows[i][j]).html() === '' ? counterNull++ : counter++;
-                    if (counter > 0) {
-                        for (let k = 0; k < counterNull; k++) {
-                            shiftCellY(rows[i + k][j], rows[i + k + 1][j]);
-                        }
-                    }
+                let rowsDown = [];
+                for (let i = rows.length - 1; i > -1; i--) {
+                    rowsDown.push(rows[i][j]);
                 }
+                shiftCell(rowsDown);
+                unionCell(rowsDown);
             }
-            creatSpell();
+            globalCount !== 0 ? createSpell() : globalCount;
+            globalCount = 0;
             break
     }
 });
 
+let touchstartX = 0;
+let touchstartY = 0;
+let touchendX = 0;
+let touchendY = 0;
+
+let gesuredZone = document.getElementById('gesuredZone');
+
+gesuredZone.addEventListener('touchstart', function (event) {
+    touchstartX = event.screenX;
+    touchstartY = event.screenY;
+}, false);
+
+gesuredZone.addEventListener('touchend', function (event) {
+    touchendX = event.screenX;
+    touchendY = event.screenY;
+    handleGesure();
+}, false);
+
+function handleGesure() {
+    let swiped = 'swiped: ';
+    if (touchendX < touchstartX) {
+        for (let i = 0; i < rows.length; i++) {
+            shiftCell(rows[i]);
+            unionCell(rows[i]);
+        }
+
+        globalCount !== 0 ? createSpell() : globalCount;
+        globalCount = 0;
+    }
+    if (touchendX > touchstartX) {
+        for (let i = 0; i < rows.length; i++) {
+            let rowsRight = [];
+            for (let j = rows.length - 1; j > -1; j--) {
+                rowsRight.push(rows[i][j]);
+            }
+            shiftCell(rowsRight);
+            unionCell(rowsRight);
+        }
+        globalCount !== 0 ? createSpell() : globalCount;
+        globalCount = 0;
+    }
+    if (touchendY < touchstartY) {
+        for (let j = 0; j < rows.length; j++) {
+            let rowsDown = [];
+            for (let i = rows.length - 1; i > -1; i--) {
+                rowsDown.push(rows[i][j]);
+            }
+            shiftCell(rowsDown);
+            unionCell(rowsDown);
+        }
+        globalCount !== 0 ? createSpell() : globalCount;
+        globalCount = 0;
+    }
+    if (touchendY > touchstartY) {
+        for (let j = 0; j < rows.length; j++) {
+            let rowsUp = [];
+            for (let i = 0; i < rows.length; i++) {
+                rowsUp.push(rows[i][j]);
+            }
+            shiftCell(rowsUp);
+            unionCell(rowsUp);
+        }
+        globalCount !== 0 ? createSpell() : globalCount;
+        globalCount = 0;
+    }
+    if (touchendY == touchstartY) {
+      
+    }
+}
