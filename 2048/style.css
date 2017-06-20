@@ -1,6 +1,15 @@
 td{ display: block; float: left; border: 5px solid #d6ae59; text-align: center;
 padding-top: 15px; font-size: 40px; border-radius: 15px; vertical-align: middle;}
 
+p {
+    color: #776e65;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    padding: 20px 200px;
+}
+
 table {
     border-collapse: separate; /* Отображать только одинарные линии */
     position: relative;
@@ -13,12 +22,64 @@ table {
     font-size: 30px;
     font-weight: 600;
     }
+
 h1 {
     text-align: center;
     color: #776e65;
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-    font-size: 90px;
+    font-size: 60px;
     font-weight: 600;
+    float: left;
+
+
+}
+.top-block{
+    width: 400px;
+    margin: auto;
+}
+
+.top-block::after {
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+.left-block{
+    float: left;
+
+
+}
+.right-block {
+    float: right;
+    padding-left: 120px;
+    margin-top: 15px;
+}
+
+.field_1 {
+    background: #d6ae59;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    color: white;
+    width: 140px;
+    height: 50px;
+    border-radius: 15px;
+    text-align: center;
+
+}
+
+.field_2 {
+    background: #d6ae59;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    color: white;
+    width: 140px;
+    height: 50px;
+    border-radius: 15px;
+    text-align: center;
+
+}
+
+.margin_field{
+    margin-top: 10px;
 }
 
 .backgrondCell {
@@ -30,16 +91,21 @@ h1 {
     background: lightgrey;
     color: #262630;
 
+
+
 }
 
 .spell4 {
     background: gray;
     color: #262630;
+
 }
 
 .spell8 {
     background: #ffb600;
     color: white;
+
+
 }
 
 .spell16 {
@@ -70,6 +136,8 @@ h1 {
 .spell512 {
     background: #ffe702;
     color: white;
+    box-shadow:inset 0 0 2px rgba(255, 0, 13, 0.68);
+    box-shadow:inset 0 0 15px 5px rgba(255, 0, 165, 0.95);
 }
 
 .animated {
@@ -80,4 +148,88 @@ h1 {
 .animatedCreateCell {
     transition-property: background-color;
     transition-duration: 2s;
+}
+
+.b-container{
+    width:400px;
+    height:150px;
+    background-color: #ccc;
+    margin: auto;
+    padding:40px;
+    font-size:30px;
+    color: #fff;
+}
+.b-popup{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0, 0, 0, 0.69);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+
+
+}
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:100px;
+    height: 40px;
+    padding:10px;
+    background-color: #c5c5c5;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+
+}
+
+a.repeat {
+    color: #000000;
+    text-decoration: none;
+    user-select: none;
+    background: rgb(255, 215, 0);
+    padding: .7em 1.5em;
+    outline: none;
+    display: none;
+    width: 200px;
+    margin: auto;
+    border-radius: 15px;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+    float: left;
+}
+a.repeat:hover { background: rgb(255, 140, 8); }
+a.repeat:active { background: rgb(240, 80, 4); }
+
+a.noRepeat {
+    color: #000000;
+    text-decoration: none;
+    user-select: none;
+    background: rgb(255, 215, 0);
+    padding: .7em 1.5em;
+    outline: none;
+    display: none;
+
+    margin: auto;
+    border-radius: 15px;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+    float: right;
+}
+a.noRepeat:hover { background: rgb(255, 140, 8);  }
+a.noRepeat:active { background: rgb(0, 0, 0); }
+
+#button_1 {
+    width: 500px;
+    margin: auto;
+}
+
+.left-button{
+width: 800px;
+    margin: auto;
+}
+.right-button {
+    width: 800px;
+    margin: auto;
 }

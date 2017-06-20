@@ -7,8 +7,31 @@
     <script type="text/javascript" src="thumbs.js"></script>
     <script type="text/javascript" src="..//jquery.js"></script>
 </head>
-<h1>2048</h1>
 <body>
+
+<div class="main-block">
+    <div class="top-block">
+        <div class="left-block">
+            <h1>2048</h1>
+            <div class="right-block">
+                <div class="field_1" id="score"></div>
+                <div class="margin_field">
+                    <div class="field_2" id="best"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="js2048.js"></script>
+<div id="lose_1">
+    <div id="lose_2"></div>
+
+        <div class="right-button"> <a href="Javascript:restartGame()" class="repeat">Заного ?</a></div>
+        <div class="left-button">  <a href="Javascript:close_func()" class="noRepeat">Дурацкая игра</a></div>
+</div>
+<div><p> How to play: Use your arrow keys to move the tiles. When two tiles with the same
+    number touch, they merge into one! </p></div>
+
 </body>
 </html>

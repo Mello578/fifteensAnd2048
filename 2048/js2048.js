@@ -1,8 +1,13 @@
 /**
  * Created by Jet on 15.06.2017.
  */
-var globalCount = 0;
-let rows = [];
+
+$('#best').html('BEST <br>' + 0);
+$('#score').html('SCORE <br>' + 0);
+
+// счетчик на перемещение и складывание ячеек. Если ячейки не складывались и соединялись, то новая ячейка не создается
+let countBest = 0;
+var rows = [];
 var table = document.createElement('table'),
     fragment = document.createDocumentFragment(),
     r = 4, c;
@@ -21,10 +26,6 @@ while (r--) {
 }
 document.body.appendChild(fragment.appendChild(table));
 
-for (let key in rows) {
-    $(rows[key]).addClass('backgrondCell');
-    $(rows[key]).addClass('animated');
-}
 
 $('table').addClass('click-table');
 $('tr').css('height', '75px');
@@ -32,37 +33,106 @@ $('tr').css('width', '90px');
 $('td').css('height', '75px');
 $('td').css('width', '90px');
 
+for (let key in rows) {
+    for (let key2 in rows[key]) {
+        $(rows[key][key2]).addClass('backgrondCell');
+        $(rows[key][key2]).addClass('animated');
+    }
+}
 
-function createSpell() {
-    let rand = 0;
-    let nullCount = 0;
-    for (let key in rows) {
-        for (let key2 in rows[key]) {
-            $(rows[key][key2]).html() === '' ? nullCount++ : nullCount;
+/** функция считает количество очков
+ *
+ * @param counter сумма складываемых ячеек
+ */
+function countScore(counter) {
+    let score = 'SCORE <br>';
+    let scoreBest = 'BEST <br>';
+    let currentScore = $('#score').html();
+    let currentBestScore = $('#best').html();
+    currentScore = parseInt(currentScore.replace(/\D/g, ''));
+    currentBestScore = parseInt(currentBestScore.replace(/\D/g, ''));
+    let sumCount = counter + currentScore;
+    $('#score').html(score + sumCount);
+    sumCount > currentBestScore ? $('#best').html(scoreBest + sumCount) : currentScore;
+
+}
+
+/**
+ *   проверка на проигрыш
+ */
+function gameOver() {
+    let countEqual = 0;
+    for (let i = 0; i < rows.length; i++) {
+        for (let j = 1; j < rows.length; j++) {
+            $(rows[i][j]).html() === $(rows[i][j - 1]).html() ? countEqual++ : countEqual;
+            $(rows[j][i]).html() === $(rows[j - 1][i]).html() ? countEqual++ : countEqual;
+            $(rows[i][j]).html() === '' ? countEqual++ : countEqual;
+            $(rows[i][j-1]).html() === '' ? countEqual++ : countEqual;
+
         }
+    }
+    if (countEqual === 0) {
+
+            setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
+            setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
+            setTimeout('$(".repeat").css("display","block")', 2000);
+            setTimeout('$(".noRepeat").css("display","block")', 2000);
 
     }
-    if (nullCount !== 0) {
-        let x = Math.floor(Math.random() * 4);
-        let y = Math.floor(Math.random() * 4);
-        if ($(rows[x][y]).html() == '') {
-            Math.floor(Math.random() * 1000) < 700 ? rand = 2 : rand = 4;
-            $(rows[x][y]).addClass('.animatedCreateCell');
-            $(rows[x][y]).append(rand).addClass('spell' + rand);
-        } else {
-            createSpell();
-        }
+}
+
+/**
+ *   Создание фишки
+ */
+function createSpell() {
+    let rand = 0;
+
+    let x = Math.floor(Math.random() * 4);
+    let y = Math.floor(Math.random() * 4);
+
+    if ($(rows[x][y]).html() == '') {
+        Math.floor(Math.random() * 1000) < 700 ? rand = 2 : rand = 4;
+        $(rows[x][y]).addClass('.animatedCreateCell');
+        $(rows[x][y]).append(rand).addClass('spell' + rand);
+        gameOver();
     } else {
-        alert("Вы проиграли!");
+        createSpell();
     }
 }
 
 createSpell();
 createSpell();
 
+function restartGame() {
+    close_func();
+    let score = 'SCORE <br>';
+    $('#score').html(score + 0);
+    for (let key in rows) {
+        for (let key2 in rows[key]) {
+            $(rows[key][key2]).attr('class', 'backgrondCell').addClass('animated').html('');
+        }
+    }
+    createSpell();
+    createSpell();
+}
 
+/**
+ * убираем затемнение
+ */
+function close_func() {
+    $("#lose_1").attr("class", "");
+    $("#lose_2").attr("class", "").html("");
+    $(".repeat").css("display", "none");
+    $(".noRepeat").css("display", "none");
+}
+
+/** функция проверяет свободные клетки и сдвигает ячейки с числами
+ *
+ * @param currentMas  передаем массив ячеек (строку или столбец)
+ */
 function shiftCell(currentMas) {
     let nullCells = 0;
+    // счетчик на движение, если равен нулю, значит ни одна фишка не сдвинулась
     let count = 0;
     for (let i = 0; i < currentMas.length; i++) {
         $(currentMas[i]).html() === '' ? nullCells++ : nullCells;
@@ -96,8 +166,13 @@ function shiftCell(currentMas) {
 
 }
 
+/** функция проверяет рядомстоящие ячейки и если они одиннаковые, объеденяет их
+ *
+ * @param currentMas  передаем массив ячеек (строку или столбец)
+ */
 function unionCell(currentMas) {
     let nullCells = 0;
+    //счетчик на количество объеденений
     let counter = 0;
     for (let i = 0; i < currentMas.length; i++) {
         $(currentMas[i]).html() === '' ? nullCells++ : nullCells;
@@ -120,6 +195,7 @@ function unionCell(currentMas) {
                 $(previousCell).html(valueCell).attr('class', 'spell' + sum);
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
                 counter++;
+                countScore(sum);
             }
         }
         shiftCell(currentMas);
@@ -127,6 +203,9 @@ function unionCell(currentMas) {
     window.globalCount += counter;
 }
 
+/**
+ * обработчик нажатия клавиш
+ */
 document.body.addEventListener("keydown", function (event) {
     switch (event.keyCode) {
         case  37:
@@ -136,6 +215,7 @@ document.body.addEventListener("keydown", function (event) {
                 unionCell(rows[i]);
             }
 
+            // проверка на движение ячеек, если они сдвигались или объеденялись, то создаем новую ячейку с цифрой
             globalCount !== 0 ? createSpell() : globalCount;
             globalCount = 0;
             break
