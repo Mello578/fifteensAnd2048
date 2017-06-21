@@ -86,13 +86,13 @@ function gameOver() {
     }
 }window.onload = function () {
     $(function () {
-        $('#restart').on('click', function () {
+        $('#restart a').on('click', function () {
             restartGame();
         });
-        $('#continue').on('click', function () {
+        $('#continue a').on('click', function () {
             close_func();
         });
-        $('.noRepeat').on('click', function () {
+        $('.noRepeat a').on('click', function () {
             close_func();
         });
     });
