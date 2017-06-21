@@ -76,7 +76,7 @@ function gameOver() {
     }
     if (countEqual === 0) {
 
-            $('.repeat').attr('href', 'Javascript:restartGame()').html('Заного ?');
+            $('.repeat').html('Заного ?');
             $('.left-button').attr('onclick', 'restartGame()');
             setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
             setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
@@ -200,7 +200,7 @@ function unionCell(currentMas) {
                 if (sum === 2048 && winCell === 0){
                  window.winCell++;
 
-                    $('.repeat').attr('href', 'Javascript:close_func()').html('Продолжить ?');
+                    $('.repeat').html('Продолжить ?');
                     $('.left-button').attr('onclick', 'close_func()');
                     setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
                     setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
