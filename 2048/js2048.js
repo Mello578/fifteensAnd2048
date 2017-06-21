@@ -199,13 +199,13 @@ function unionCell(currentMas) {
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
                 if (sum === 2048 && winCell === 0){
                     window.winCell++;
-                    $('.repeat').html('Продолжить ?');
+                    $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
+                    $('.noRepeat').attr('onclick', 'close_func()');
                     setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
                     setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
                     setTimeout('$(".repeat").css("display","block")', 500);
                     setTimeout('$(".noRepeat").css("display","block")', 500);
-                    $('.repeat').attr('id', 'continue');
-                    $('.noRepeat').attr('id', 'clear');
+
 
                 }
                 counter++;
@@ -329,14 +329,3 @@ document.addEventListener('touchend', function(event) {
 
 }, false);
 
-$(function () {
-    $('.left-button a').on('click', function () {
-        restartGame();
-    });
-    $('.left-button a').on('click', function () {
-        close_func();
-    });
-    $('.right-button a').on('click', function () {
-        close_func();
-    });
-});
