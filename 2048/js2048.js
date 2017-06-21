@@ -82,21 +82,10 @@ function gameOver() {
             setTimeout('$(".repeat").css("display","block")', 2000);
             setTimeout('$(".noRepeat").css("display","block")', 2000);
             $('.repeat').attr('id', 'restart');
+            $('.noRepeat').attr('id', 'clear');
 
     }
-}window.onload = function () {
-    $(function () {
-        $('#restart a').on('click', function () {
-            restartGame();
-        });
-        $('#continue a').on('click', function () {
-            close_func();
-        });
-        $('.noRepeat a').on('click', function () {
-            close_func();
-        });
-    });
-};
+}
 
 /**
  *   Создание фишки
@@ -216,6 +205,7 @@ function unionCell(currentMas) {
                     setTimeout('$(".repeat").css("display","block")', 500);
                     setTimeout('$(".noRepeat").css("display","block")', 500);
                     $('.repeat').attr('id', 'continue');
+                    $('.noRepeat').attr('id', 'clear');
 
                 }
                 counter++;
@@ -336,4 +326,17 @@ document.addEventListener('touchend', function(event) {
             }
         }
     }
+
 }, false);
+
+$(function () {
+    $('.left-button a').on('click', function () {
+        restartGame();
+    });
+    $('.left-button a').on('click', function () {
+        close_func();
+    });
+    $('.right-button a').on('click', function () {
+        close_func();
+    });
+});
