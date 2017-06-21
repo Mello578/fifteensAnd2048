@@ -136,8 +136,7 @@ h1 {
 .spell512 {
     background: #ffe702;
     color: white;
-    box-shadow:inset 0 0 2px rgba(255, 0, 13, 0.68);
-    box-shadow:inset 0 0 15px 5px rgba(255, 0, 165, 0.95);
+
 }
 
 .animated {
@@ -197,8 +196,9 @@ a.repeat {
     font-weight: 100;
     float: left;
 }
-a.repeat:hover { background: rgb(255, 140, 8); }
-a.repeat:active { background: rgb(240, 80, 4); }
+
+a.repeat:hover { background: rgb(255, 140, 8);  }
+a.repeat:active { background: rgb(0, 0, 0); }
 
 a.noRepeat {
     color: #000000;
@@ -208,7 +208,6 @@ a.noRepeat {
     padding: .7em 1.5em;
     outline: none;
     display: none;
-
     margin: auto;
     border-radius: 15px;
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
@@ -220,16 +219,12 @@ a.noRepeat {
 a.noRepeat:hover { background: rgb(255, 140, 8);  }
 a.noRepeat:active { background: rgb(0, 0, 0); }
 
-#button_1 {
-    width: 500px;
-    margin: auto;
-}
 
 .left-button{
-width: 800px;
+    width: 60%;
     margin: auto;
 }
 .right-button {
-    width: 800px;
+    width: 60%;
     margin: auto;
 }

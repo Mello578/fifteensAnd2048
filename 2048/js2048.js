@@ -1,12 +1,15 @@
 /**
  * Created by Jet on 15.06.2017.
+ *
  */
 
 $('#best').html('BEST <br>' + 0);
 $('#score').html('SCORE <br>' + 0);
 
 // счетчик на перемещение и складывание ячеек. Если ячейки не складывались и соединялись, то новая ячейка не создается
-let countBest = 0;
+let countCell = 0;
+// проверка на выигрыш
+let winCell = 0;
 var rows = [];
 var table = document.createElement('table'),
     fragment = document.createDocumentFragment(),
@@ -73,10 +76,12 @@ function gameOver() {
     }
     if (countEqual === 0) {
 
+            $('.repeat').attr('href', 'Javascript:restartGame()').html('Заного ?');
             setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
             setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
             setTimeout('$(".repeat").css("display","block")', 2000);
             setTimeout('$(".noRepeat").css("display","block")', 2000);
+
 
     }
 }
@@ -105,6 +110,7 @@ createSpell();
 
 function restartGame() {
     close_func();
+    window.winCell = 0;
     let score = 'SCORE <br>';
     $('#score').html(score + 0);
     for (let key in rows) {
@@ -126,6 +132,7 @@ function close_func() {
     $(".noRepeat").css("display", "none");
 }
 
+
 /** функция проверяет свободные клетки и сдвигает ячейки с числами
  *
  * @param currentMas  передаем массив ячеек (строку или столбец)
@@ -144,16 +151,13 @@ function shiftCell(currentMas) {
             $(currentCell).html() === '' ? countNull++ : countNull;
             if ($(currentCell).html() !== '') {
                 for (let k = 0; k < countNull; k++) {
-                    let classA = $(currentMas[i - k]).attr('class'),
-                        valueCell;
+                    let classA = $(currentMas[i - k]).attr('class');
+                    let valueCell;
                     classA = parseInt(classA.replace(/\D/g, ''));
-                    if (classA > 256) {
-                        valueCell = classA;
-                        classA = 512
-                    } else {
-                        valueCell = classA;
-                    }
 
+                    classA > 256 ? classA = 512 : classA;
+
+                    valueCell = $(currentMas[i - k]).html();
                     $(currentMas[i - 1 - k]).html(valueCell).attr('class', 'spell' + classA);
                     $(currentMas[i - k]).html('').attr('class', 'backgrondCell').addClass('animated');
                     count++;
@@ -184,16 +188,23 @@ function unionCell(currentMas) {
             if ($(currentCell).html() === $(previousCell).html() && $(currentCell).html() !== '') {
                 let classA = $(previousCell).attr('class');
                 let classB = $(currentCell).attr('class');
-                let valueCell;
+                let valueCell, valueA, valueB;
                 let sum = parseInt(classA.replace(/\D/g, '')) + parseInt(classB.replace(/\D/g, ''));
-                if (sum > 256) {
-                    valueCell = sum;
-                    sum = 512
-                } else {
-                    valueCell = sum;
-                }
+                valueA = $(currentCell).html();
+                valueB = $(previousCell).html();
+                valueCell = parseInt(valueA) + parseInt(valueB);
+                sum > 256 ? sum = 512 : sum;
                 $(previousCell).html(valueCell).attr('class', 'spell' + sum);
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
+                if (sum === 2048 && winCell === 0){
+                 window.winCell++;
+
+                    $('.repeat').attr('href', 'Javascript:close_func()').html('Продолжить ?');
+                    setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
+                    setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
+                    setTimeout('$(".repeat").css("display","block")', 500);
+                    setTimeout('$(".noRepeat").css("display","block")', 500);
+                }
                 counter++;
                 countScore(sum);
             }
