@@ -300,7 +300,7 @@ var touch = 0;
 
 $(function () {
     while (touch === 0) {
-
+        window.touch++;
 
         var initialPoint;
         var finalPoint;
@@ -319,17 +319,21 @@ $(function () {
                 if (xAbs > yAbs) {
                     if (finalPoint.pageX < initialPoint.pageX) {
                         leftSwipe();
+                        window.touch = 0;
                     }
                     else {
                         rightSwipe();
+                        window.touch = 0;
                     }
                 }
                 else {
                     if (finalPoint.pageY < initialPoint.pageY) {
                         upSwipe();
+                        window.touch = 0;
                     }
                     else {
                         downSwipe();
+                        window.touch = 0;
                     }
                 }
             }
