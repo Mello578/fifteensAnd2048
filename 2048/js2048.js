@@ -76,8 +76,7 @@ function gameOver() {
     }
     if (countEqual === 0) {
 
-            $('.repeat').html('Заного ?');
-            $('.left-button').attr('onclick', 'restartGame()');
+            $('.repeat').attr('onclick', 'restartGame()').html('Заново ?');
             setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
             setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
             setTimeout('$(".repeat").css("display","block")', 2000);
@@ -200,12 +199,12 @@ function unionCell(currentMas) {
                 if (sum === 2048 && winCell === 0){
                  window.winCell++;
 
-                    $('.repeat').html('Продолжить ?');
-                    $('.left-button').attr('onclick', 'close_func()');
+                    $('.repeat').attr('onclick', 'close_func()').html('Продолжить ?');
                     setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
-                    setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
+                    setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ !!!")', 500);
                     setTimeout('$(".repeat").css("display","block")', 500);
                     setTimeout('$(".noRepeat").css("display","block")', 500);
+
                 }
                 counter++;
                 countScore(sum);
