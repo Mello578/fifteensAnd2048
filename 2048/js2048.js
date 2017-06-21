@@ -81,15 +81,22 @@ function gameOver() {
             setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
             setTimeout('$(".repeat").css("display","block")', 2000);
             setTimeout('$(".noRepeat").css("display","block")', 2000);
-            $('.repeat').on('click', function () {
+            $('.repeat').attr('id', 'restart');
+
+    }
+}window.onload = function () {
+    $(function () {
+        $('#restart').on('click', function () {
             restartGame();
-            });
+        });
+        $('#continue').on('click', function () {
+            close_func();
+        });
         $('.noRepeat').on('click', function () {
             close_func();
         });
-
-    }
-}
+    });
+};
 
 /**
  *   Создание фишки
@@ -208,9 +215,7 @@ function unionCell(currentMas) {
                     setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
                     setTimeout('$(".repeat").css("display","block")', 500);
                     setTimeout('$(".noRepeat").css("display","block")', 500);
-                    $('.repeat', '.noRepeat').on('click', function () {
-                        close_func();
-                    });
+                    $('.repeat').attr('id', 'continue');
 
                 }
                 counter++;
