@@ -111,6 +111,7 @@ createSpell();
 function restartGame() {
     close_func();
     window.winCell = 0;
+    window.touch = true;
     let score = 'SCORE <br>';
     $('#score').html(score + 0);
     for (let key in rows) {
@@ -130,7 +131,7 @@ function close_func() {
     $("#lose_2").attr("class", "").html("");
     $(".repeat").css("display", "none");
     $(".noRepeat").css("display", "none");
-    
+    window.touch = true;
 }
 
 
