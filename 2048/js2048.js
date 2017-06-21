@@ -298,9 +298,9 @@ document.body.addEventListener("keydown", function (event) {
 });
 
 let touch = ('ontouchstart' in window);
-
+while (touch){
 $(function () {
-    while (touch){
+
         window.touch = false;
     var initialPoint;
     var finalPoint;
@@ -338,9 +338,9 @@ $(function () {
         }
 
     }, false);
-}
-});
 
+});
+}
 
 
 
