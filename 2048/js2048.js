@@ -70,18 +70,18 @@ function gameOver() {
             $(rows[i][j]).html() === $(rows[i][j - 1]).html() ? countEqual++ : countEqual;
             $(rows[j][i]).html() === $(rows[j - 1][i]).html() ? countEqual++ : countEqual;
             $(rows[i][j]).html() === '' ? countEqual++ : countEqual;
-            $(rows[i][j-1]).html() === '' ? countEqual++ : countEqual;
+            $(rows[i][j - 1]).html() === '' ? countEqual++ : countEqual;
 
         }
     }
     if (countEqual === 0) {
-
-            $('.repeat').attr('onclick', 'restartGame()').html('Заново ?');
-            $('.noRepeat').attr('onclick', 'close_func()');
-            setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
-            setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
-            setTimeout('$(".repeat").css("display","block")', 2000);
-            setTimeout('$(".noRepeat").css("display","block")', 2000);
+        window.touch++;
+        $('.repeat').attr('onclick', 'restartGame()').html('Заново ?');
+        $('.noRepeat').attr('onclick', 'close_func()');
+        setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
+        setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
+        setTimeout('$(".repeat").css("display","block")', 2000);
+        setTimeout('$(".noRepeat").css("display","block")', 2000);
 
     }
 }
@@ -111,6 +111,7 @@ createSpell();
 function restartGame() {
     close_func();
     window.winCell = 0;
+    window.touch = 0;
     let score = 'SCORE <br>';
     $('#score').html(score + 0);
     for (let key in rows) {
@@ -126,6 +127,7 @@ function restartGame() {
  * убираем затемнение
  */
 function close_func() {
+    window.touch = 0;
     $("#lose_1").attr("class", "");
     $("#lose_2").attr("class", "").html("");
     $(".repeat").css("display", "none");
@@ -196,7 +198,7 @@ function unionCell(currentMas) {
                 sum > 256 ? sum = 512 : sum;
                 $(previousCell).html(valueCell).attr('class', 'spell' + sum);
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
-                if (sum === 2048 && winCell === 0){
+                if (sum === 2048 && winCell === 0) {
                     window.winCell++;
                     $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
                     $('.noRepeat').attr('onclick', 'close_func()');
@@ -294,43 +296,47 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
+var touch = 0;
+
+$(function () {
+    while (touch === 0) {
 
 
-    $(function () {
         var initialPoint;
         var finalPoint;
-        document.addEventListener('touchstart', function(event) {
+        document.addEventListener('touchstart', function (event) {
             event.preventDefault();
             event.stopPropagation();
-            initialPoint=event.changedTouches[0];
+            initialPoint = event.changedTouches[0];
         }, false);
-        document.addEventListener('touchend', function(event) {
+        document.addEventListener('touchend', function (event) {
             event.preventDefault();
             event.stopPropagation();
-            finalPoint=event.changedTouches[0];
+            finalPoint = event.changedTouches[0];
             var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
             var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
             if (xAbs > 20 || yAbs > 20) {
                 if (xAbs > yAbs) {
-                    if (finalPoint.pageX < initialPoint.pageX){
+                    if (finalPoint.pageX < initialPoint.pageX) {
                         leftSwipe();
                     }
-                    else{
+                    else {
                         rightSwipe();
                     }
                 }
                 else {
-                    if (finalPoint.pageY < initialPoint.pageY){
+                    if (finalPoint.pageY < initialPoint.pageY) {
                         upSwipe();
                     }
-                    else{
+                    else {
                         downSwipe();
                     }
                 }
             }
 
         }, false);
-    });
+    }
+});
 
 
 
