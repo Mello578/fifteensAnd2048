@@ -314,9 +314,9 @@ isMobile = {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
 };
+let h = isMobile.any();
 
-
-while (isMobile.any()){
+while (h){
     $(function () {
         var initialPoint;
         var finalPoint;
