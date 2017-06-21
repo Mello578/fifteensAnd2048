@@ -214,6 +214,57 @@ function unionCell(currentMas) {
     window.globalCount += counter;
 }
 
+function leftSwipe() {
+    for (let i = 0; i < rows.length; i++) {
+        shiftCell(rows[i]);
+        unionCell(rows[i]);
+    }
+
+    // проверка на движение ячеек, если они сдвигались или объеденялись, то создаем новую ячейку с цифрой
+    globalCount !== 0 ? createSpell() : globalCount;
+    globalCount = 0;
+}
+
+function upSwipe() {
+    for (let j = 0; j < rows.length; j++) {
+        let rowsUp = [];
+        for (let i = 0; i < rows.length; i++) {
+            rowsUp.push(rows[i][j]);
+        }
+        shiftCell(rowsUp);
+        unionCell(rowsUp);
+    }
+    globalCount !== 0 ? createSpell() : globalCount;
+    globalCount = 0;
+}
+
+function rightSwipe() {
+    for (let i = 0; i < rows.length; i++) {
+        let rowsRight = [];
+        for (let j = rows.length - 1; j > -1; j--) {
+            rowsRight.push(rows[i][j]);
+        }
+        shiftCell(rowsRight);
+        unionCell(rowsRight);
+    }
+    globalCount !== 0 ? createSpell() : globalCount;
+    globalCount = 0;
+}
+
+function downSwipe() {
+    for (let j = 0; j < rows.length; j++) {
+        let rowsDown = [];
+        for (let i = rows.length - 1; i > -1; i--) {
+            rowsDown.push(rows[i][j]);
+        }
+        shiftCell(rowsDown);
+        unionCell(rowsDown);
+    }
+    globalCount !== 0 ? createSpell() : globalCount;
+    globalCount = 0;
+}
+
+
 /**
  * обработчик нажатия клавиш
  */
@@ -221,58 +272,55 @@ document.body.addEventListener("keydown", function (event) {
     switch (event.keyCode) {
         case  37:
 
-            for (let i = 0; i < rows.length; i++) {
-                shiftCell(rows[i]);
-                unionCell(rows[i]);
-            }
-
-            // проверка на движение ячеек, если они сдвигались или объеденялись, то создаем новую ячейку с цифрой
-            globalCount !== 0 ? createSpell() : globalCount;
-            globalCount = 0;
+            leftSwipe();
             break
 
         case 38:
 
-            for (let j = 0; j < rows.length; j++) {
-                let rowsUp = [];
-                for (let i = 0; i < rows.length; i++) {
-                    rowsUp.push(rows[i][j]);
-                }
-                shiftCell(rowsUp);
-                unionCell(rowsUp);
-            }
-            globalCount !== 0 ? createSpell() : globalCount;
-            globalCount = 0;
+            upSwipe();
             break
 
         case 39:
 
-
-            for (let i = 0; i < rows.length; i++) {
-                let rowsRight = [];
-                for (let j = rows.length - 1; j > -1; j--) {
-                    rowsRight.push(rows[i][j]);
-                }
-                shiftCell(rowsRight);
-                unionCell(rowsRight);
-            }
-            globalCount !== 0 ? createSpell() : globalCount;
-            globalCount = 0;
+            rightSwipe();
             break
 
         case 40:
 
-            for (let j = 0; j < rows.length; j++) {
-                let rowsDown = [];
-                for (let i = rows.length - 1; i > -1; i--) {
-                    rowsDown.push(rows[i][j]);
-                }
-                shiftCell(rowsDown);
-                unionCell(rowsDown);
-            }
-            globalCount !== 0 ? createSpell() : globalCount;
-            globalCount = 0;
+            downSwipe();
             break
     }
 });
 
+var initialPoint;
+var finalPoint;
+document.addEventListener('touchstart', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    initialPoint=event.changedTouches[0];
+}, false);
+document.addEventListener('touchend', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    finalPoint=event.changedTouches[0];
+    var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+    var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+    if (xAbs > 20 || yAbs > 20) {
+        if (xAbs > yAbs) {
+            if (finalPoint.pageX < initialPoint.pageX){
+                leftSwipe();
+            }
+            else{
+                rightSwipe();
+            }
+        }
+        else {
+            if (finalPoint.pageY < initialPoint.pageY){
+                upSwipe();
+            }
+            else{
+                downSwipe();
+            }
+        }
+    }
+}, false);
