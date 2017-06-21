@@ -294,40 +294,49 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-if($(".noRepeat").css("display") === 'none'){
-    var initialPoint;
-    var finalPoint;
-    document.addEventListener('touchstart', function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        initialPoint=event.changedTouches[0];
-    }, false);
-    document.addEventListener('touchend', function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        finalPoint=event.changedTouches[0];
-        var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
-        var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
-        if (xAbs > 20 || yAbs > 20) {
-            if (xAbs > yAbs) {
-                if (finalPoint.pageX < initialPoint.pageX){
-                    leftSwipe();
+var supportsTouch = ('ontouchstart' in document.documentElement);
+while (supportsTouch){
+    $(function () {
+        var initialPoint;
+        var finalPoint;
+        document.addEventListener('touchstart', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            initialPoint=event.changedTouches[0];
+        }, false);
+        document.addEventListener('touchend', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            finalPoint=event.changedTouches[0];
+            var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+            var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+            if (xAbs > 20 || yAbs > 20) {
+                if (xAbs > yAbs) {
+                    if (finalPoint.pageX < initialPoint.pageX){
+                        leftSwipe();
+                    }
+                    else{
+                        rightSwipe();
+                    }
                 }
-                else{
-                    rightSwipe();
+                else {
+                    if (finalPoint.pageY < initialPoint.pageY){
+                        upSwipe();
+                    }
+                    else{
+                        downSwipe();
+                    }
                 }
             }
-            else {
-                if (finalPoint.pageY < initialPoint.pageY){
-                    upSwipe();
-                }
-                else{
-                    downSwipe();
-                }
-            }
-        }
 
-    }, false);
+        }, false);
+    });
 }
+
+
+
+
+
+
 
 
