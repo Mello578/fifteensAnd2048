@@ -77,6 +77,7 @@ function gameOver() {
     if (countEqual === 0) {
 
             $('.repeat').attr('href', 'Javascript:restartGame()').html('Заного ?');
+            $('.left-button').attr('onclick', 'restartGame()');
             setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
             setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
             setTimeout('$(".repeat").css("display","block")', 2000);
@@ -200,6 +201,7 @@ function unionCell(currentMas) {
                  window.winCell++;
 
                     $('.repeat').attr('href', 'Javascript:close_func()').html('Продолжить ?');
+                    $('.left-button').attr('onclick', 'close_func()');
                     setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
                     setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
                     setTimeout('$(".repeat").css("display","block")', 500);
