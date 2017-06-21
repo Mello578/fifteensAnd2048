@@ -75,7 +75,7 @@ function gameOver() {
         }
     }
     if (countEqual === 0) {
-        window.touch++;
+        window.touch = false;
         $('.repeat').attr('onclick', 'restartGame()').html('Заново ?');
         $('.noRepeat').attr('onclick', 'close_func()');
         setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
@@ -111,7 +111,6 @@ createSpell();
 function restartGame() {
     close_func();
     window.winCell = 0;
-    window.touch = 0;
     let score = 'SCORE <br>';
     $('#score').html(score + 0);
     for (let key in rows) {
@@ -127,11 +126,11 @@ function restartGame() {
  * убираем затемнение
  */
 function close_func() {
-    window.touch = 0;
     $("#lose_1").attr("class", "");
     $("#lose_2").attr("class", "").html("");
     $(".repeat").css("display", "none");
     $(".noRepeat").css("display", "none");
+    
 }
 
 
@@ -200,6 +199,7 @@ function unionCell(currentMas) {
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
                 if (sum === 2048 && winCell === 0) {
                     window.winCell++;
+                    window.touch = false;
                     $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
                     $('.noRepeat').attr('onclick', 'close_func()');
                     setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
@@ -296,50 +296,48 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-var touch = 0;
+let touch = ('ontouchstart' in window);
 
 $(function () {
-    while (touch === 0) {
-        window.touch++;
-
-        var initialPoint;
-        var finalPoint;
-        document.addEventListener('touchstart', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            initialPoint = event.changedTouches[0];
-        }, false);
-        document.addEventListener('touchend', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            finalPoint = event.changedTouches[0];
-            var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
-            var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
-            if (xAbs > 20 || yAbs > 20) {
-                if (xAbs > yAbs) {
-                    if (finalPoint.pageX < initialPoint.pageX) {
-                        leftSwipe();
-                        window.touch = 0;
-                    }
-                    else {
-                        rightSwipe();
-                        window.touch = 0;
-                    }
+    while (touch){
+        window.touch = false;
+    var initialPoint;
+    var finalPoint;
+    document.addEventListener('touchstart', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        initialPoint = event.changedTouches[0];
+    }, false);
+    document.addEventListener('touchend', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        finalPoint = event.changedTouches[0];
+        var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+        var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+        if (xAbs > 20 || yAbs > 20) {
+            if (xAbs > yAbs) {
+                if (finalPoint.pageX < initialPoint.pageX) {
+                    leftSwipe();
                 }
                 else {
-                    if (finalPoint.pageY < initialPoint.pageY) {
-                        upSwipe();
-                        window.touch = 0;
-                    }
-                    else {
-                        downSwipe();
-                        window.touch = 0;
-                    }
+                    rightSwipe();
+
                 }
             }
+            else {
+                if (finalPoint.pageY < initialPoint.pageY) {
+                    upSwipe();
 
-        }, false);
-    }
+                }
+                else {
+                    downSwipe();
+
+                }
+            }
+        }
+
+    }, false);
+}
 });
 
 
