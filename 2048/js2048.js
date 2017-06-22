@@ -195,7 +195,7 @@ function unionCell(currentMas) {
                 sum > 256 ? sum = 512 : sum;
                 $(previousCell).html(valueCell).attr('class', 'spell' + sum);
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
-                if (valueCell === 2048 && winCell === 0) {
+                if (valueCell === 512 && winCell === 0) {
                     window.winCell++;
                     $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
                     $('.noRepeat').attr('onclick', 'close_func()');
@@ -269,6 +269,7 @@ function downSwipe() {
 /**
  * обработчик нажатия клавиш
  */
+
 document.body.addEventListener("keydown", function (event) {
     switch (event.keyCode) {
         case  37:
@@ -295,9 +296,9 @@ document.body.addEventListener("keydown", function (event) {
 
 
 
+    let initialPoint;
+    let finalPoint;
 
-    var initialPoint;
-    var finalPoint;
     document.addEventListener('touchstart', function (event) {
         event.preventDefault();
         event.stopPropagation();
@@ -324,18 +325,13 @@ document.body.addEventListener("keydown", function (event) {
                     upSwipe();
 
                 }
-                else {
-                    downSwipe();
 
-                }
             }
-        }else{
-            onclick();
         }
 
     }, false);
 
-
+$('noRepeat').on('tap', close_func);
 
 
 
