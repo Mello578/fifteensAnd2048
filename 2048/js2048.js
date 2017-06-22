@@ -334,7 +334,10 @@ document.body.addEventListener("keydown", function (event) {
 
     }, false);
 
-$('.noRepeat').on('click', close_func());
+$('.noRepeat').click(function () {
+    close_func();
+    return false;
+});
 
 
 
