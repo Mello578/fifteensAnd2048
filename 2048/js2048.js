@@ -60,6 +60,16 @@ function countScore(counter) {
 
 }
 
+$(document).ready(function(){
+
+
+$('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
+$('.noRepeat').attr('onclick', 'close_func()').attr('return', 'false');
+setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
+setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
+setTimeout('$(".repeat").css("display","block")', 500);
+setTimeout('$(".noRepeat").css("display","block")', 500);
+});
 /**
  *   проверка на проигрыш
  */
@@ -195,7 +205,8 @@ function unionCell(currentMas) {
                 sum > 256 ? sum = 512 : sum;
                 $(previousCell).html(valueCell).attr('class', 'spell' + sum);
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
-                if (valueCell === 4 && winCell === 0) {
+                 if (valueCell === 2048 && winCell === 0) {
+
                     window.winCell++;
                     $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
                     $('.noRepeat').attr('onclick', 'close_func()').attr('return', 'false');
