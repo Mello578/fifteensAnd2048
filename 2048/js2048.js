@@ -75,7 +75,6 @@ function gameOver() {
         }
     }
     if (countEqual === 0) {
-        window.touch = false;
         $('.repeat').attr('onclick', 'restartGame()').html('Заново ?');
         $('.noRepeat').attr('onclick', 'close_func()');
         setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
@@ -111,7 +110,6 @@ createSpell();
 function restartGame() {
     close_func();
     window.winCell = 0;
-    window.touch = true;
     let score = 'SCORE <br>';
     $('#score').html(score + 0);
     for (let key in rows) {
@@ -131,7 +129,6 @@ function close_func() {
     $("#lose_2").attr("class", "").html("");
     $(".repeat").css("display", "none");
     $(".noRepeat").css("display", "none");
-    window.touch = true;
 }
 
 
@@ -200,7 +197,6 @@ function unionCell(currentMas) {
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
                 if (valueCell === 2048 && winCell === 0) {
                     window.winCell++;
-                    window.touch = false;
                     $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
                     $('.noRepeat').attr('onclick', 'close_func()');
                     setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
@@ -297,11 +293,9 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-let touch = ('ontouchstart' in window);
-while (touch){
-$(function () {
 
-        window.touch = false;
+
+
     var initialPoint;
     var finalPoint;
     document.addEventListener('touchstart', function (event) {
@@ -341,8 +335,7 @@ $(function () {
 
     }, false);
 
-});
-}
+
 
 
 
