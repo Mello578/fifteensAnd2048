@@ -305,7 +305,7 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-
+/*
 
     let initialPoint;
     let finalPoint;
@@ -346,7 +346,7 @@ document.body.addEventListener("keydown", function (event) {
     }, false);
 
 
-
+*/
 
 
 
