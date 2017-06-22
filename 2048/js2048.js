@@ -198,7 +198,7 @@ function unionCell(currentMas) {
                 sum > 256 ? sum = 512 : sum;
                 $(previousCell).html(valueCell).attr('class', 'spell' + sum);
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
-                if (sum === 2048 && winCell === 0) {
+                if (valueCell === 2048 && winCell === 0) {
                     window.winCell++;
                     window.touch = false;
                     $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
@@ -335,6 +335,8 @@ $(function () {
 
                 }
             }
+        }else{
+            onclick();
         }
 
     }, false);
