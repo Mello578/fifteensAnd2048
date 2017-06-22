@@ -60,16 +60,7 @@ function countScore(counter) {
 
 }
 
-$(document).ready(function(){
 
-
-$('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
-$('.noRepeat').attr('onclick', 'close_func()').attr('return', 'false');
-setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
-setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
-setTimeout('$(".repeat").css("display","block")', 500);
-setTimeout('$(".noRepeat").css("display","block")', 500);
-});
 /**
  *   проверка на проигрыш
  */
