@@ -342,7 +342,7 @@ document.body.addEventListener("keydown", function (event) {
                 }
             }
         }else if (xAbs === yAbs){
-            event.preventDefault();
+            event.stopPropagation();
         }
 
     }, false);
