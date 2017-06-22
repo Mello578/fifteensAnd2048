@@ -341,8 +341,8 @@ document.body.addEventListener("keydown", function (event) {
 
                 }
             }
-        }else {
-            return false;
+        }else if (xAbs === yAbs){
+            event.preventDefault();
         }
 
     }, false);
