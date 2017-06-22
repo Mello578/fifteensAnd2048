@@ -76,7 +76,7 @@ function gameOver() {
     }
     if (countEqual === 0) {
         $('.repeat').attr('onclick', 'restartGame()').html('Заново ?');
-        $('.noRepeat').attr('onclick', 'close_func()');
+        $('.noRepeat').attr('onclick', 'close_func()').attr('return', 'false');
         setTimeout('$("#lose_1").attr("class", "b-popup")', 2000);
         setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ПРОИГРАЛИ")', 2000);
         setTimeout('$(".repeat").css("display","block")', 2000);
@@ -195,10 +195,10 @@ function unionCell(currentMas) {
                 sum > 256 ? sum = 512 : sum;
                 $(previousCell).html(valueCell).attr('class', 'spell' + sum);
                 $(currentCell).html('').attr('class', 'backgrondCell').addClass('animated');
-                if (valueCell === 512 && winCell === 0) {
+                if (valueCell === 4 && winCell === 0) {
                     window.winCell++;
                     $('.repeat').html('Продолжить ?').attr('onclick', 'close_func()');
-                    $('.noRepeat').attr('onclick', 'close_func()');
+                    $('.noRepeat').attr('onclick', 'close_func()').attr('return', 'false');
                     setTimeout('$("#lose_1").attr("class", "b-popup")', 500);
                     setTimeout('$("#lose_2").attr("class", "b-popup-content").html("Вы ВЫИГРАЛИ")', 500);
                     setTimeout('$(".repeat").css("display","block")', 500);
@@ -334,10 +334,6 @@ document.body.addEventListener("keydown", function (event) {
 
     }, false);
 
-$('.noRepeat').click(function () {
-    close_func();
-    return false;
-});
 
 
 
