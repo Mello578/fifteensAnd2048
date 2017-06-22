@@ -334,7 +334,7 @@ document.body.addEventListener("keydown", function (event) {
 
     }, false);
 
-$('.noRepeat').on('tap', close_func);
+$('.noRepeat').on('click', close_func());
 
 
 
