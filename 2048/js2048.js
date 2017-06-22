@@ -305,11 +305,8 @@ document.body.addEventListener("keydown", function (event) {
     }
 });
 
-document.addEventListener('touchend',function(e){
-    e.preventDefault();
-    e.target.click();
-},false);
-document.addEventListener('click', someFunction,false);
+
+
 
     let initialPoint;
     let finalPoint;
@@ -345,6 +342,11 @@ document.addEventListener('click', someFunction,false);
 
                 }
             }
+        }else{
+            document.addEventListener('touchend',function(e){
+                e.preventDefault();
+                e.target.click();
+            },false);
         }
 
     }, false);
