@@ -325,13 +325,16 @@ document.body.addEventListener("keydown", function (event) {
                     upSwipe();
 
                 }
+                else {
+                    downSwipe();
 
+                }
             }
         }
 
     }, false);
 
-$('noRepeat').on('tap', close_func);
+$('.noRepeat').on('tap', close_func);
 
 
 
